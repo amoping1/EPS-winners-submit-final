@@ -1,0 +1,118 @@
+{
+  "run_id": "v2run",
+  "generated_at": "2026-08-16T14:07:54+00:00",
+  "companies": [
+    {
+      "ticker": "HD",
+      "period": "FY2026Q2",
+      "workbook": "HD-FY2026Q2.xlsx",
+      "metrics": [
+        {
+          "label": "Net sales",
+          "units": "USDm",
+          "value": 47100.0,
+          "low": 46600.0,
+          "high": 47650.0
+        },
+        {
+          "label": "Adjusted diluted EPS",
+          "units": "USD / share",
+          "value": 4.69,
+          "low": 4.48,
+          "high": 4.88
+        },
+        {
+          "label": "Comparable sales, total company",
+          "units": "%",
+          "value": 0.5,
+          "low": -0.5,
+          "high": 1.5
+        }
+      ]
+    },
+    {
+      "ticker": "ADI",
+      "period": "FY2026Q3",
+      "workbook": "ADI-FY2026Q3.xlsx",
+      "metrics": [
+        {
+          "label": "Revenue",
+          "units": "USDm",
+          "value": 3940.0,
+          "low": 3830.0,
+          "high": 4020.0
+        },
+        {
+          "label": "Adjusted diluted EPS",
+          "units": "USD / share",
+          "value": 3.36,
+          "low": 3.18,
+          "high": 3.48
+        },
+        {
+          "label": "Adjusted gross margin",
+          "units": "%",
+          "value": 73.7,
+          "low": 72.9,
+          "high": 74.4
+        }
+      ]
+    },
+    {
+      "ticker": "HAS",
+      "period": "FY2026",
+      "workbook": "HAS-FY2026.xlsx",
+      "metrics": [
+        {
+          "label": "Net fees",
+          "units": "GBPm",
+          "value": 897.0,
+          "low": 875.0,
+          "high": 920.0
+        },
+        {
+          "label": "Pre-exceptional basic EPS",
+          "units": "GBp",
+          "value": 1.42,
+          "low": 1.2,
+          "high": 1.65
+        },
+        {
+          "label": "Pre-exceptional operating profit",
+          "units": "GBPm",
+          "value": 46.0,
+          "low": 44.5,
+          "high": 47.0
+        }
+      ]
+    },
+    {
+      "ticker": "DE",
+      "period": "FY2026Q3",
+      "workbook": "DE-FY2026Q3.xlsx",
+      "metrics": [
+        {
+          "label": "Worldwide net sales and revenues",
+          "units": "USDm",
+          "value": 12850.0,
+          "low": 12300.0,
+          "high": 13400.0
+        },
+        {
+          "label": "Diluted EPS (GAAP)",
+          "units": "USD / share",
+          "value": 4.6,
+          "low": 4.05,
+          "high": 5.2
+        },
+        {
+          "label": "Production & Precision Ag operating profit",
+          "units": "USDm",
+          "value": 500.0,
+          "low": 400.0,
+          "high": 610.0
+        }
+      ]
+    }
+  ]
+}

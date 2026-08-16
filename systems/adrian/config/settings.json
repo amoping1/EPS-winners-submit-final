@@ -1,0 +1,15 @@
+{
+  "corpus": {
+    "root": "/Users/spax/agents-vs-wall-street-starter/challenge/offline-data",
+    "frozenAt": "2026-08-14"
+  },
+  "organizerRepo": "/Users/spax/agents-vs-wall-street-starter",
+  "run": {
+    "asOf": "2026-08-16",
+    "_asOfNote": "Live run uses today. Backtests override with a historical date - see backtest/."
+  },
+  "output": {
+    "submissionDir": "submission",
+    "logDir": "logs"
+  }
+}

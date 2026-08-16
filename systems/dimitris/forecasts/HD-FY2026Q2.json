@@ -1,0 +1,158 @@
+{
+  "run_id": "v2run",
+  "generated_at": "2026-08-16T14:07:54+00:00",
+  "workbook": "HD-FY2026Q2.xlsx",
+  "forecast": {
+    "ticker": "HD",
+    "period": "FY2026Q2",
+    "metrics": [
+      {
+        "label": "Net sales",
+        "units": "USDm",
+        "value": 47100.0,
+        "low": 46600.0,
+        "high": 47650.0,
+        "method": "Same-quarter base angle: FY2025Q2 net sales of 45,277 x (1 + 0.5% comparable-sales assumption) = 45,503. I then add approximately 1,300 of GMS sales (Q1's disclosed contribution; GMS remains outside the normal >52-week comp base), about 100 from stores/branches, and about 200 of FX, giving 47,103, rounded to 47,100. A seasonal-shape cross-check says Q2 is the spring peak and was 45,277 versus Q1's 39,856 last year; applying the comparable Q2 seasonal uplift to FY2026Q1's 41,765 gives a less useful 47.4bn indication because Q1 already contains GMS and its seasonality may differ. Full-year guidance of +2.5% to +4.5% supports a roughly +4.0% Q2 reported-sales outcome, while Q1's +4.8% is an upper, acquisition/FX-assisted run-rate angle. I weight the same-quarter acquisition bridge and full-year guide over sequential seasonality. Weak real remodeling demand and soft Pro growth pull the organic component down; GMS, branches and modest FX preserve reported growth.",
+        "assumptions": [
+          "GMS contributes approximately USD1.3bn to Q2 sales, broadly similar to its disclosed Q1 contribution, and remains excluded from comparable sales until the acquisition anniversary.",
+          "Total-company comparable sales are +0.5%, with a small positive ticket offsetting still-soft transaction/project volumes.",
+          "FX contributes roughly USD0.2bn and new stores/branches add roughly USD0.1bn versus FY2025Q2."
+        ],
+        "drivers_applied": [
+          "GMS acquisition contribution",
+          "Comparable environment, store and branch expansion",
+          "Currency translation",
+          "Consumer uncertainty and housing affordability",
+          "Spring seasonal demand",
+          "Remodeling-market slowdown"
+        ],
+        "evidence": [
+          {
+            "source": "2025-08-20__hd-us-20250820-q2-8k__143688.md",
+            "locator": "Condensed Consolidated Statements of Earnings, lines 140-258",
+            "quote": "Net sales | $ 45,277"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-10q__1053121.md",
+            "locator": "Sales, lines 852-863",
+            "quote": "GMS...contributed $1.3 billion of net sales"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-8k__1038584.md",
+            "locator": "Fiscal 2026 Guidance, lines 64-78",
+            "quote": "Total sales growth of approximately 2.5% to 4.5%"
+          },
+          {
+            "source": "https://www.jchs.harvard.edu/research-areas/remodeling/lira",
+            "locator": "July 23, 2026 release",
+            "quote": "annual owner-occupied improvement-and-repair spending is expected to keep losing momentum through mid-2027"
+          }
+        ],
+        "conflicts_resolved": "No direct conflict: filings provide the exact prior-year base, Q1 acquisition/FX bridge and current full-year guidance; the financials table ties the Q1 sales base at 41,765. Post-freeze industry research is weaker and forward-looking, so it is used to restrain organic growth rather than override company guidance.",
+        "confidence": "medium"
+      },
+      {
+        "label": "Adjusted diluted EPS",
+        "units": "USD / share",
+        "value": 4.69,
+        "low": 4.48,
+        "high": 4.88,
+        "method": "Prior-year same-quarter angle starts at FY2025Q2 adjusted EPS of 4.68. Sales of 47,100 at an estimated 13.9%-14.0% Q2 GAAP operating-margin range produces about 6.55-6.59bn operating income, near FY2025Q2's reported 6.555bn despite higher sales; after interest/tax and the larger acquired-intangible add-back, that supports adjusted EPS of about 4.65-4.73. The full-year guide angle is GAAP EPS flat to +4% from 14.23, plus an expected 0.50 annual after-tax amortization exclusion; it supports broadly stable-to-modestly-higher adjusted earnings rather than an extrapolation of Q1 weakness. Q1's 3.43 adjusted EPS versus 3.56 prior year is the downside run-rate, but is not carried straight into Q2 because Q2 is the structurally high spring-selling quarter. I select 4.69: essentially flat year on year, as GMS sales and seasonal leverage offset GMS mix dilution and cost deleverage. This follows the required cyclical/seasonal intuition rather than treating sequential Q1 EPS as the forecast base.",
+        "assumptions": [
+          "Q2 adjusted operating margin is sufficient for GAAP operating margin of roughly 13.9%-14.0%, below FY2025Q2's 14.48% because of GMS mix and cost deleverage.",
+          "The Q2 acquired-intangible amortization add-back net of tax is about USD0.13 per share, above FY2025Q2's USD0.10-like adjusted-to-GAAP spread but consistent with the FY2026 USD0.50 annual exclusion.",
+          "Interest expense, tax rate and diluted share count do not move enough year on year to alter adjusted EPS by more than approximately USD0.05."
+        ],
+        "drivers_applied": [
+          "GMS consolidated margin mix",
+          "Cost deleverage",
+          "Spring seasonal operating leverage",
+          "FY2026 gross-margin and adjusted-operating-margin guidance",
+          "Freight/material cost pressure"
+        ],
+        "evidence": [
+          {
+            "source": "2025-08-20__hd-us-20250820-q2-8k__143688.md",
+            "locator": "Second Quarter Fiscal 2025 Results, lines 57-66",
+            "quote": "Adjusted diluted earnings per share...were $4.68"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-10q__1053121.md",
+            "locator": "Gross Profit, lines 872-875",
+            "quote": "primarily reflects the inclusion of GMS"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-10q__1053121.md",
+            "locator": "Operating Expenses, lines 876-883",
+            "quote": "higher operating costs relative to comparable sales performance"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-8k__1038584.md",
+            "locator": "Fiscal 2026 Guidance, lines 64-78",
+            "quote": "Adjusted operating margin of approximately 12.8% to 13.0%"
+          },
+          {
+            "source": "https://www.hiri.org/blog/navigating-home-improvement-market-insights-from-hiris-latest-size-of-market-forecast",
+            "locator": "July 29, 2026 HIRI forecast summary",
+            "quote": "higher energy and non-energy logistics costs"
+          }
+        ],
+        "conflicts_resolved": "The Q1 margin/EPS trend pulls below 4.68, whereas full-year margin/EPS guidance and Q2 seasonal operating leverage pull toward stability. I give greater weight to the latter for this seasonal quarter, while retaining GMS mix and cost pressure; the financials table corroborates FY2025Q2 GAAP operating income of 6,555 but is not used as an adjusted-EPS substitute.",
+        "confidence": "medium"
+      },
+      {
+        "label": "Comparable sales, total company",
+        "units": "%",
+        "value": 0.5,
+        "low": -0.5,
+        "high": 1.5,
+        "method": "The direct same-quarter base is FY2025Q2 total-company comp of +1.0%. FY2026Q1 printed +0.6%, with transactions down 1.3% and ticket up 2.2%; that says modest pricing/ticket support continues but volume has not recovered. The explicit FY2026 guide is flat to +2.0%, whose 1.0% midpoint is a second angle. Post-freeze JCHS/HIRI indicators pull below that midpoint because they describe decelerating remodeling and declining real product growth, while spring weather and favorable outdoor activity are modest upside risks. I weight the current transaction/ticket pattern and industry caution more than the guide midpoint, yielding +0.5%. GMS is not used to inflate the comp because acquisitions are normally included only after more than 52 weeks; this is an organic same-store measure, unlike reported sales.",
+        "assumptions": [
+          "Comparable customer transactions remain negative by roughly 1%, while average ticket remains positive enough to offset most of that pressure.",
+          "No severe adverse weather event materially disrupts the spring/outdoor selling period, but weather is not assumed to repeat an unusually strong favorable pattern.",
+          "GMS remains outside the comparable-sales base during Q2 because it was acquired September 4, 2025 and the definition generally requires more than 52 weeks of ownership."
+        ],
+        "drivers_applied": [
+          "Transactions versus ticket",
+          "Outdoor weather and regional demand",
+          "Consumer uncertainty and housing affordability",
+          "Housing/remodeling-cycle deceleration",
+          "Acquisition comparability rules"
+        ],
+        "evidence": [
+          {
+            "source": "2025-08-20__hd-us-20250820-q2-8k__143688.md",
+            "locator": "Second Quarter Fiscal 2025 Results, lines 57-66",
+            "quote": "Comparable sales...increased 1.0%"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-10q__1053121.md",
+            "locator": "Three Month Comparisons, lines 811-851",
+            "quote": "Comparable customer transactions... (1.3)%...average ticket...2.2%"
+          },
+          {
+            "source": "2026-05-19__hd-us-20260519-q1-8k__1038584.md",
+            "locator": "Fiscal 2026 Guidance, lines 64-78",
+            "quote": "Comparable sales growth of approximately flat to 2.0%"
+          },
+          {
+            "source": "https://www.hiri.org/blog/navigating-home-improvement-market-insights-from-hiris-latest-size-of-market-forecast",
+            "locator": "July 29, 2026 HIRI forecast summary",
+            "quote": "real product growth is declining across most major categories"
+          }
+        ],
+        "conflicts_resolved": "Company guidance's 0%-2% range and the Q1 +0.6% print support a small positive comp; industry outlooks argue against acceleration to the guide midpoint or higher. No report offers a contrary direct Q2 trading update, so filings win on base/range and news supplies a cautious tilt within it. The financials table has no comparable-sales data.",
+        "confidence": "medium"
+      }
+    ],
+    "reconciliation": "Filings analyst is primary: it supplies the FY2025Q2 bases, FY2026 guidance, Q1 transaction/ticket evidence, GMS/FX contributions, acquisition accounting and seasonal context. Financials analyst is a shape/tie-out check for reported Q1 sales and FY2025Q2 operating income/margins; it is not used for adjusted EPS or comps. News analyst found no Q2 preannouncement or guidance change, so it does not supersede guidance; its JCHS/HIRI evidence modestly reduces the assumed organic comp and raises EPS-margin risk. The combined central case is reported sales growth supported by GMS while underlying comparable demand remains subdued and margin mix limits EPS growth.",
+    "sanity_checks": "Net sales: 47,100 implies +4.0% year on year from FY2025Q2 45,277, plausible because roughly 1.3bn of GMS sales, modest FX/new-branch benefit and a +0.5% comp offset weak underlying project volumes. Net sales 47,100 is USD millions, i.e. USD47.10 billion. It is within the required 20,000-90,000 band. Adjusted diluted EPS: 4.69 implies +0.2% year on year from FY2025Q2 4.68, plausible because spring sales and acquisition contribution are offset by GMS margin dilution, cost deleverage and cautious demand. Adjusted diluted EPS 4.69 is USD4.69 per diluted share, not USD469 or USD0.0469. It is within the required 0.5-15 band. Comparable sales, total company: 0.5 implies a 0.5-percentage-point deceleration from FY2025Q2's +1.0%, plausible given negative transactions, affordability pressure and slowing remodeling, partly offset by positive ticket and seasonal outdoor demand. Comparable sales 0.5 is +0.5 percentage points, not 0.005 or 50%. It is within the required -25 to 25 band.",
+    "known_weaknesses": "There is no company-issued FY2026Q2-specific outlook, trading update, or actual result as of August 16; the IR calendar schedules release for August 18. The magnitude and seasonal pattern of GMS's Q2 contribution are not directly disclosed, so the USD1.3bn bridge is an assumption anchored on Q1. Post-freeze news lacks a peer quarterly read-through because searches failed and available industry indicators are rolling/annual rather than direct Q2 measures. Q2 weather, FX, transaction trajectory, tariff/freight costs, and the exact GMS amortization impact could move all three outcomes. A material trading update, an unexpected GMS contribution, or evidence that transactions turned positive/meaningfully worse would change the view.",
+    "confidence": "medium"
+  },
+  "validation": [
+    "WARN: HD / Comparable sales, total company: value 0.5 is below 1 for a PERCENTAGE metric. Percentages must be in POINTS — 0.5 means 0.5%, so if you meant 50.0% this is wrong by 100x. Confirm which it is."
+  ],
+  "degraded_inputs": [],
+  "seconds": 217.9
+}

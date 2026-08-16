@@ -1,0 +1,289 @@
+<title>Corpus-First Forecaster</title>
+<style>
+:root{
+  --ground:#f9fafb; --surface:#ffffff; --ink:#121619; --muted:#5b6570;
+  --line:#e3e7eb; --line-strong:#c8d0d6;
+  --accent:#0e5c63; --accent-soft:#e6f1f1; --accent-ink:#0a4348;
+  --ok:#1c6b45; --warn:#8a6100; --bad:#a32a2a;
+  --band:#f2f5f4;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1315; --surface:#161b1e; --ink:#e6ebed; --muted:#95a0a7;
+    --line:#252d31; --line-strong:#39444a;
+    --accent:#5fb8bf; --accent-soft:#122b2d; --accent-ink:#8ed3d8;
+    --ok:#5fbf8f; --warn:#d6a15c; --bad:#e0787c;
+    --band:#141a1c;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1315; --surface:#161b1e; --ink:#e6ebed; --muted:#95a0a7;
+  --line:#252d31; --line-strong:#39444a;
+  --accent:#5fb8bf; --accent-soft:#122b2d; --accent-ink:#8ed3d8;
+  --ok:#5fbf8f; --warn:#d6a15c; --bad:#e0787c;
+  --band:#141a1c;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-feature-settings:"kern" 1;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:56px 28px 96px}
+h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+  text-wrap:balance;letter-spacing:-.005em;margin:0}
+h1{font-size:38px;line-height:1.15;margin:0 0 10px}
+h2{font-size:25px;margin:0 0 6px}
+h3{font-size:17px;margin:0 0 6px}
+p{margin:0 0 14px;max-width:68ch}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.eyebrow{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin:0 0 10px}
+.lede{font-size:18px;line-height:1.6;color:var(--muted);max-width:64ch;margin:0 0 8px}
+.rule{height:1px;background:var(--line-strong);margin:34px 0}
+section{margin:0 0 40px}
+.sec-head{border-top:2px solid var(--ink);padding-top:12px;margin:0 0 18px}
+.grid{display:grid;gap:14px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.stat .k{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stat .v{font-size:27px;font-weight:600;margin-top:3px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat .n{font-size:13px;color:var(--muted);margin-top:2px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;
+  font-variant-numeric:tabular-nums}
+caption{text-align:left;font-size:13px;color:var(--muted);padding:0 0 8px}
+th,td{padding:8px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  font-weight:700;white-space:nowrap;border-bottom:1px solid var(--line-strong)}
+tbody tr:nth-child(even){background:var(--band)}
+td.num,th.num{text-align:right;white-space:nowrap}
+code,.mono{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Menlo,Consolas,monospace;
+  font-size:.9em}
+code{background:var(--band);border:1px solid var(--line);border-radius:3px;padding:.5px 5px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;
+  padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink);
+  white-space:nowrap}
+.tag.ok{background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.tag.warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.tag.bad{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+figure{margin:0 0 18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:6px;padding:20px}
+figcaption{font-size:13px;color:var(--muted);margin-top:12px;max-width:70ch}
+svg{display:block;max-width:100%;height:auto}
+ul{margin:0 0 14px;padding-left:19px;max-width:68ch}
+li{margin:0 0 7px}
+li::marker{color:var(--muted)}
+details{border:1px solid var(--line);border-radius:6px;background:var(--surface);
+  padding:12px 16px;margin:0 0 10px}
+summary{cursor:pointer;font-weight:600;font-size:14.5px}
+details[open] summary{margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.stage{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.stage:last-child{border-bottom:0}
+.stage .no{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);
+  font-weight:700;min-width:26px}
+.stage .body{flex:1}
+.stage .t{font-weight:650;font-size:15px}
+.stage .d{color:var(--muted);font-size:14px;margin-top:1px}
+.foot{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted)}
+@media (max-width:640px){
+  .wrap{padding:34px 18px 64px} h1{font-size:29px} h2{font-size:21px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<div class="wrap">
+<p class="eyebrow">Agents vs Wall Street · architecture</p>
+<h1>Corpus-First Forecaster</h1>
+<p class="lede">Three specialist agents read the frozen filings corpus, recent evidence through a value-investing lens, and long-run financial history. A fourth reconciles them into twelve cited forecasts.</p>
+<p class="lede" style="font-size:15px">Every figure on this page is read out of <code>runs.sqlite</code> for run <code>fullrun1</code> — the diagram cannot drift from the system because it is generated from what ran.</p>
+<div class="rule"></div>
+<div class="grid g3">
+<div class="stat"><div class="k">Metrics filled</div><div class="v">0/12</div><div class="n">a blank scores the maximum penalty</div></div>
+<div class="stat"><div class="k">Wall clock</div><div class="v">3.5 min</div><div class="n">45-minute final-run window</div></div>
+<div class="stat"><div class="k">Run cost</div><div class="v">$0.00</div><div class="n">n/a of prompt tokens cached</div></div>
+<div class="stat"><div class="k">Evidence rows</div><div class="v">299</div><div class="n">each ties a number to a source</div></div>
+</div>
+<section><div class="sec-head"><h2>How it runs</h2></div>
+<figure>
+<svg viewBox="0 0 900 350" role="img" aria-label="Pipeline: three source-bound analysts feed a central reconciler, all state written to SQLite">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--line-strong)"/>
+    </marker>
+  </defs>
+  <g font-family="ui-monospace,Menlo,monospace" font-size="12">
+    <!-- collectors -->
+    <text x="14" y="26" fill="var(--muted)" font-size="10.5" letter-spacing="1.2">COLLECTORS</text>
+    <rect x="10" y="38" width="176" height="46" rx="5" fill="var(--band)" stroke="var(--line)"/>
+    <text x="24" y="60" fill="var(--ink)">corpus · 1,139 docs</text>
+    <text x="24" y="75" fill="var(--muted)" font-size="10.5">frozen 2026-08-14</text>
+
+    <rect x="10" y="118" width="176" height="46" rx="5" fill="var(--band)" stroke="var(--line)"/>
+    <text x="24" y="140" fill="var(--ink)">web · Firecrawl</text>
+    <text x="24" y="155" fill="var(--muted)" font-size="10.5">post-freeze + industry</text>
+
+    <rect x="10" y="198" width="176" height="46" rx="5" fill="var(--band)" stroke="var(--line)"/>
+    <text x="24" y="220" fill="var(--ink)">market · yfinance</text>
+    <text x="24" y="235" fill="var(--muted)" font-size="10.5">deterministic, no model</text>
+
+    <!-- analysts -->
+    <text x="246" y="26" fill="var(--muted)" font-size="10.5" letter-spacing="1.2">ANALYSTS (concurrent)</text>
+    <rect x="242" y="38" width="196" height="46" rx="5" fill="var(--surface)" stroke="var(--accent)"/>
+    <text x="256" y="60" fill="var(--ink)">filings analyst</text>
+    <text x="256" y="75" fill="var(--muted)" font-size="10.5">MD&amp;A: why it moved</text>
+
+    <rect x="242" y="118" width="196" height="46" rx="5" fill="var(--surface)" stroke="var(--accent)"/>
+    <text x="256" y="140" fill="var(--ink)">news analyst</text>
+    <text x="256" y="155" fill="var(--muted)" font-size="10.5">value lens, rejects noise</text>
+
+    <rect x="242" y="198" width="196" height="46" rx="5" fill="var(--surface)" stroke="var(--accent)"/>
+    <text x="256" y="220" fill="var(--ink)">financials analyst</text>
+    <text x="256" y="235" fill="var(--muted)" font-size="10.5">long-run table</text>
+
+    <!-- central -->
+    <rect x="500" y="98" width="192" height="106" rx="5" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+    <text x="516" y="124" fill="var(--accent-ink)" font-size="13" font-weight="700">CENTRAL</text>
+    <text x="516" y="144" fill="var(--ink)" font-size="10.5">8-step reasoning order</text>
+    <text x="516" y="159" fill="var(--ink)" font-size="10.5">+ intuition.md</text>
+    <text x="516" y="174" fill="var(--ink)" font-size="10.5">no tools: reasons,</text>
+    <text x="516" y="188" fill="var(--ink)" font-size="10.5">does not re-research</text>
+
+    <!-- output -->
+    <rect x="748" y="98" width="140" height="106" rx="5" fill="var(--surface)" stroke="var(--line-strong)"/>
+    <text x="762" y="124" fill="var(--ink)" font-size="13" font-weight="700">12 forecasts</text>
+    <text x="762" y="146" fill="var(--muted)" font-size="10.5">value · range</text>
+    <text x="762" y="161" fill="var(--muted)" font-size="10.5">method · assumptions</text>
+    <text x="762" y="176" fill="var(--muted)" font-size="10.5">citations</text>
+
+    <!-- arrows -->
+    <g stroke="var(--line-strong)" stroke-width="1.3" fill="none" marker-end="url(#a)">
+      <path d="M186,61 L238,61"/><path d="M186,141 L238,141"/><path d="M186,221 L238,221"/>
+      <path d="M438,61 C470,61 470,130 496,130"/>
+      <path d="M438,141 L496,148"/>
+      <path d="M438,221 C470,221 470,172 496,172"/>
+      <path d="M692,151 L744,151"/>
+    </g>
+
+    <!-- store -->
+    <rect x="10" y="288" width="878" height="46" rx="5" fill="var(--band)" stroke="var(--line)" stroke-dasharray="4 3"/>
+    <text x="24" y="310" fill="var(--ink)">SQLite run store</text>
+    <text x="24" y="325" fill="var(--muted)" font-size="10.5">every task, tool call, token, cost and evidence row — resume keys survive a crash mid-run</text>
+    <g stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="3 3" fill="none">
+      <path d="M340,244 L340,286"/><path d="M596,204 L596,286"/>
+    </g>
+  </g>
+</svg>
+<figcaption>Three analysts run concurrently per company, and all four companies run concurrently — the whole run is one asyncio event loop. Delegation depth is a <code>ContextVar</code> rather than a module global, which is what makes that safe.</figcaption></figure>
+<h3>The reasoning order the central agent must follow</h3>
+<p>These are numbered because the order carries meaning: each step constrains the next, and the agent must show its working for each one in the output.</p>
+<div class='card'>
+<div class="stage"><div class="no">01</div><div class="body"><div class="t">Seasonality</div><div class="d">Compare to the same quarter last year, never to last quarter. Then find what distorts it — a 53rd week, a calendar shift, FX, an acquisition.</div></div></div>
+<div class="stage"><div class="no">02</div><div class="body"><div class="t">Cyclicality</div><div class="d">Locate the position in the cycle before forecasting the level. Extremes mean-revert; the commonest error is extrapolating two quarters in a straight line.</div></div></div>
+<div class="stage"><div class="no">03</div><div class="body"><div class="t">Company trend</div><div class="d">Does the multi-year trajectory bend here, or is this wobble around it? Most is wobble.</div></div></div>
+<div class="stage"><div class="no">04</div><div class="body"><div class="t">Industry trend</div><div class="d">An industry down 8% with the company down 5% is a share gain inside a cyclical decline — that forecasts very differently from a company problem.</div></div></div>
+<div class="stage"><div class="no">05</div><div class="body"><div class="t">Recent surprises — news</div><div class="d">What happened after the corpus froze that no filing can know, and does it move <em>this</em> fiscal period?</div></div></div>
+<div class="stage"><div class="no">06</div><div class="body"><div class="t">Recent surprises — history</div><div class="d">Where prints diverged from their own trend, and whether management called it one-off or continuing.</div></div></div>
+<div class="stage"><div class="no">07</div><div class="body"><div class="t">What has repeatedly mattered</div><div class="d">The two or three recurring swing factors that decide beat-or-miss for this company specifically.</div></div></div>
+<div class="stage"><div class="no">08</div><div class="body"><div class="t">Guidance bias</div><div class="d">Does this management habitually guide low and beat? Company guidance is a first-party forecast; respect it, then adjust by the measured bias.</div></div></div>
+</div></section>
+<section><div class="sec-head"><h2>The twelve numbers</h2></div>
+<p>Each carries a named method, a range, and citations back to specific corpus filenames. No figure is asserted without a route to its source.</p>
+<div class="scroll"><table><caption>Forecasts as submitted, with the method the agent chose.</caption><tr><th>Company</th><th>Metric</th><th class="num">Value</th><th class="num">Range</th><th>Units</th><th>Method</th><th>Conf.</th></tr>
+</table></div></section>
+<section><div class="sec-head"><h2>What the run actually cost</h2></div>
+<p>Recorded per task rather than estimated. Cache hit rate is the number that matters — when it collapses, the prompt is churning.</p>
+<div class="scroll"><table><tr><th>Task</th><th>Status</th><th class="num">Seconds</th><th class="num">Prompt</th><th class="num">Cached</th><th class="num">Output</th><th class="num">Requests</th><th class="num">Cost</th></tr>
+<tr><td><code>HD:filings</code></td><td><span class="tag ok">completed</span></td><td class="num">170</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HD:news</code></td><td><span class="tag ok">completed</span></td><td class="num">91</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HD:financials</code></td><td><span class="tag ok">completed</span></td><td class="num">3</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>ADI:filings</code></td><td><span class="tag ok">completed</span></td><td class="num">154</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>ADI:news</code></td><td><span class="tag ok">completed</span></td><td class="num">87</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>ADI:financials</code></td><td><span class="tag ok">completed</span></td><td class="num">3</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HAS:filings</code></td><td><span class="tag ok">completed</span></td><td class="num">174</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HAS:news</code></td><td><span class="tag ok">completed</span></td><td class="num">85</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HAS:financials</code></td><td><span class="tag ok">completed</span></td><td class="num">3</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>DE:filings</code></td><td><span class="tag ok">completed</span></td><td class="num">167</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>DE:news</code></td><td><span class="tag ok">completed</span></td><td class="num">70</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>DE:financials</code></td><td><span class="tag ok">completed</span></td><td class="num">3</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>ADI:central</code></td><td><span class="tag ok">completed</span></td><td class="num">30</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>DE:central</code></td><td><span class="tag ok">completed</span></td><td class="num">40</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HD:central</code></td><td><span class="tag ok">completed</span></td><td class="num">36</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+<tr><td><code>HAS:central</code></td><td><span class="tag ok">completed</span></td><td class="num">26</td><td class="num">0</td><td class="num">&mdash;</td><td class="num">0</td><td class="num">0</td><td class="num">$0.0000</td></tr>
+</table></div>
+<p style="margin-top:12px"><strong>Totals.</strong> 20 tasks (20 completed), 0 prompt tokens at n/a cached, <strong>$0.00</strong> for the run.</p></section>
+<section><div class="sec-head"><h2>Evidence coverage</h2></div>
+<p>How many rows tie each metric to a source document. A metric with zero rows is a red flag however confident the prose sounds — this table is the check.</p>
+<div class="scroll"><table><tr><th>Company</th><th>Metric</th><th class="num">Evidence rows</th><th class="num">Distinct sources</th></tr>
+<tr><td><strong>ADI</strong></td><td>Adjusted diluted EPS</td><td class="num"><span class="tag ok">12</span></td><td class="num">9</td></tr>
+<tr><td><strong>ADI</strong></td><td>Adjusted gross margin</td><td class="num"><span class="tag ok">11</span></td><td class="num">8</td></tr>
+<tr><td><strong>ADI</strong></td><td>Peer read-across for ADI FY2026 Q3 revenue and adjusted gross margin: TI&#x27;s industrial, automotive, data-center and AI-infrastructure demand comments bear on ADI&#x27;s core analog end markets and factory loading.</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>ADI</strong></td><td>Revenue</td><td class="num"><span class="tag ok">12</span></td><td class="num">10</td></tr>
+<tr><td><strong>ADI</strong></td><td>diluted_eps</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>ADI</strong></td><td>gross_profit</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>ADI</strong></td><td>guidance:Adjusted diluted EPS</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>ADI</strong></td><td>guidance:Adjusted operating margin</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>ADI</strong></td><td>guidance:Revenue</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>ADI</strong></td><td>net_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>ADI</strong></td><td>operating_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>ADI</strong></td><td>revenue</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>DE</strong></td><td>Diluted EPS (GAAP)</td><td class="num"><span class="tag ok">13</span></td><td class="num">9</td></tr>
+<tr><td><strong>DE</strong></td><td>Production &amp; Precision Ag operating profit</td><td class="num"><span class="tag ok">13</span></td><td class="num">10</td></tr>
+<tr><td><strong>DE</strong></td><td>Worldwide net sales and revenues</td><td class="num"><span class="tag ok">12</span></td><td class="num">11</td></tr>
+<tr><td><strong>DE</strong></td><td>diluted_eps</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>DE</strong></td><td>gross_profit</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>DE</strong></td><td>guidance:Financial Services net income</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>DE</strong></td><td>guidance:Net income attributable to Deere &amp; Company</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>DE</strong></td><td>guidance:Production &amp; Precision Ag net sales</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>DE</strong></td><td>guidance:Production &amp; Precision Ag operating margin</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>DE</strong></td><td>net_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>DE</strong></td><td>operating_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>DE</strong></td><td>revenue</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>HAS</strong></td><td>Net fees</td><td class="num"><span class="tag ok">9</span></td><td class="num">4</td></tr>
+<tr><td><strong>HAS</strong></td><td>Pre-exceptional basic EPS</td><td class="num"><span class="tag ok">9</span></td><td class="num">4</td></tr>
+<tr><td><strong>HAS</strong></td><td>Pre-exceptional operating profit</td><td class="num"><span class="tag ok">9</span></td><td class="num">4</td></tr>
+<tr><td><strong>HAS</strong></td><td>diluted_eps</td><td class="num"><span class="tag ok">4</span></td><td class="num">1</td></tr>
+<tr><td><strong>HAS</strong></td><td>gross_profit</td><td class="num"><span class="tag ok">3</span></td><td class="num">1</td></tr>
+<tr><td><strong>HAS</strong></td><td>guidance:Pre-exceptional operating profit</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HAS</strong></td><td>net_income</td><td class="num"><span class="tag ok">3</span></td><td class="num">1</td></tr>
+<tr><td><strong>HAS</strong></td><td>operating_income</td><td class="num"><span class="tag ok">3</span></td><td class="num">1</td></tr>
+<tr><td><strong>HAS</strong></td><td>revenue</td><td class="num"><span class="tag ok">3</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>Adjusted diluted EPS</td><td class="num"><span class="tag ok">11</span></td><td class="num">7</td></tr>
+<tr><td><strong>HD</strong></td><td>Comparable sales and net sales via the closest large-format U.S. home-improvement peer; adjusted diluted EPS via retail margin read-through.</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>Comparable sales and net sales: a forward indicator for the owner-occupied repair/remodel activity that drives Home Depot’s DIY and project demand.</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>Comparable sales, total company</td><td class="num"><span class="tag ok">11</span></td><td class="num">8</td></tr>
+<tr><td><strong>HD</strong></td><td>Diluted EPS</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>Net sales</td><td class="num"><span class="tag ok">10</span></td><td class="num">8</td></tr>
+<tr><td><strong>HD</strong></td><td>Net sales and comparable sales through market growth, Pro/DIY mix and housing turnover; adjusted diluted EPS through inflation, freight and petroleum-linked materials costs.</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>diluted_eps</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>HD</strong></td><td>gross_profit</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>HD</strong></td><td>guidance:Adjusted diluted EPS growth</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>guidance:Comparable sales, total company growth</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>guidance:Net sales growth</td><td class="num"><span class="tag ok">1</span></td><td class="num">1</td></tr>
+<tr><td><strong>HD</strong></td><td>net_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>HD</strong></td><td>operating_income</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+<tr><td><strong>HD</strong></td><td>revenue</td><td class="num"><span class="tag ok">9</span></td><td class="num">2</td></tr>
+</table></div></section>
+<section><div class="sec-head"><h2>Decisions that shaped it</h2></div><div class="grid g2">
+<div class="card"><h3>The corpus is primary, not the web</h3><p style="margin:0">Eight of the twelve metrics have external analyst consensus. Four do not, in any form — Home Depot comparable sales, Analog Devices adjusted gross margin, Hays net fees as a forecast, and Deere's Production &amp; Precision Ag operating profit. Those four are also where Wall Street's own miss is largest, which raises the scoring denominator and makes them the cheapest to beat. So the frozen first-party corpus leads and everything else corroborates.</p></div>
+<div class="card"><h3>Numbers are extracted, not read</h3><p style="margin:0">Financial statements in the corpus are clean markdown pipe tables, so <code>extract_tables</code> returns reported figures verbatim with no model in the loop. A model that reads digits out of prose will eventually transpose one.</p></div>
+<div class="card"><h3>Structured output via a terminal tool</h3><p style="margin:0">The agent finishes by calling <code>submit_result</code>, whose argument is the caller's Pydantic model — so function calling enforces the schema. Using <code>output_type=</code> instead sets a JSON response format that collides with function tools on several providers.</p></div>
+<div class="card"><h3>Point-in-time filtering on <code>published_at</code></h3><p style="margin:0">Never on <code>period</code>. They diverge — one Home Depot document published 2026-05-21 carries period &ldquo;Q2 2027&rdquo; — so filtering on period leaks the future into a backtest.</p></div>
+<div class="card"><h3>Cite the filename, not the URL</h3><p style="margin:0">1,027 of the 1,139 corpus documents have <code>source_url: null</code>. The filename is the citation, and every citation is re-resolved against the index so a hallucinated source is caught before a judge sees it.</p></div>
+<div class="card"><h3>The run store earns its place three times</h3><p style="margin:0">Resume keys mean a crash at minute 40 of the 45-minute window resumes rather than restarts. The evidence table answers &ldquo;how did this number happen&rdquo; in one query. Parent/child task links make the execution shape recoverable — which is how this page is generated.</p></div>
+</div></section>
+<section><div class="sec-head"><h2>What went wrong, and what is still weak</h2></div>
+<p>Written because it is true, and because a write-up that hides its holes is worth less than one that names them.</p>
+<details><summary>A silent failure that would have produced twelve blank forecasts</summary><p style='margin:0'>Provider keys are read with <code>os.getenv</code>, but pydantic-settings loads <code>.env</code> into its own object and never exports to the process environment. A correct key in a correct file was invisible to the code. Every model call failed auth, the fallback path caught it exactly as designed, and the run <em>completed</em> — with blanks. That uploads cleanly and scores the maximum penalty on all twelve. Fixed with an explicit <code>load_dotenv()</code> plus a preflight that refuses to start on an empty key. A loud failure is recoverable; a quiet one is not.</p></details>
+<details><summary>The news agent's first run returned nothing, and was right to</summary><p style='margin:0'>It treated the corpus freeze as a hard date filter on all evidence and rejected a housing-market study and a competitor's results for predating it. But the corpus holds first-party company documents only — no industry research, no macro series, no peer disclosures, at any date. The window is now explicitly two windows. After the fix the same query returned three high-quality items, including a peer read-across showing comparable sales of +0.6% against a 70bp gross-margin decline.</p></details>
+<details><summary>Collection and analysis are coupled — the main known weakness</summary><p style='margin:0'>The analysts are named after their data sources, so the kind of analysis got welded to the source it happened to read. Historical analysis should draw on the filings, the long numeric series and the industry history together; today it can only see the corpus. The consequence is real: the filings analyst cannot see that Yahoo's &ldquo;Gross Profit&rdquo; for Hays <em>is</em> net fees. The next iteration separates source-shaped collectors from question-shaped analysts.</p></details>
+<details><summary>Deere's consensus tracks a different metric than the one being scored</summary><p style='margin:0'>Yahoo's revenue consensus for Deere follows equipment operations net sales, not &ldquo;worldwide net sales and revenues&rdquo; — a gap of about 1,426 USDm on the quarter. Anchoring on it would understate the scored metric by over a billion dollars. Encoded as an explicit trap rather than left to be rediscovered.</p></details>
+<details><summary>Not done</summary><p style='margin:0'>No backtest harness, though the corpus supports one — point-in-time cutoffs work and reach back to 2012. The central agent cannot yet escalate when a report is thin. Yahoo caps at four fiscal years, not the fifteen hoped for, so deep history has to come from the corpus.</p></details>
+</section>
+<p class="foot">Generated from <code>runs.sqlite</code> · run <code>fullrun1</code> · 2026-08-16 12:26 UTC. Self-contained: no external assets, no network requests, no secrets. Forecasts are not investment advice.</p>
+</div>

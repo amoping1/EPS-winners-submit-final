@@ -1,0 +1,9 @@
+# Unpinned by choice — always latest at install time.
+openai
+openai-agents[litellm]
+pydantic
+pydantic-settings
+python-dotenv
+requests
+openpyxl
+yfinance

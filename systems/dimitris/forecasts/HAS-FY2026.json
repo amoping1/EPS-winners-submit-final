@@ -1,0 +1,158 @@
+{
+  "run_id": "v2run",
+  "generated_at": "2026-08-16T14:07:54+00:00",
+  "workbook": "HAS-FY2026.xlsx",
+  "forecast": {
+    "ticker": "HAS",
+    "period": "FY2026",
+    "metrics": [
+      {
+        "label": "Net fees",
+        "units": "GBPm",
+        "value": 897.0,
+        "low": 875.0,
+        "high": 920.0,
+        "method": "I treat FY2026 as a late-downturn stabilisation year, not a recovery. The same-period annual base is FY2025 net fees of £972.4m. Applying an approximately 7.8% reported decline gives £972.4m × 0.922 = £896.5m, rounded to £897.0m. The exit-rate angle is less negative: Q4 reported fees were down 4% (5% LFL), with Temp & Contracting down 3% and Perm down 7%; this supports a result above an extrapolation of FY2025's 13% reported fall, but does not support a return to growth. The company’s mix evidence also supports partial stabilisation: Temp volumes were stable in Q4 and higher Perm fees (+3%) offset some volume pressure. Pulling the other way, Germany is 32% of group fees and its Engineering line was down 20%, while peer disclosures still show European/German weakness; country exits/disposals contributed about £15m of FY2026 reported fees, making reported comparability less clean. I weight the FY2025 annual base plus H2/Q4 run-rate most heavily, use the cycle history to reject a straight-line FY2025 decline, and make a modest allowance for positive Q4 FX versus LFL. This prioritises same-year annual seasonality and the company’s latest outturn over the UK-only improvement in July news.",
+        "assumptions": [
+          "FY2026 reported group net fees decline about 7.8% from FY2025, after a materially better Q4 reported decline of 4%.",
+          "Temp & Contracting remains more resilient than Perm, broadly consistent with Q4 declines of 3% and 7%, respectively.",
+          "The approximately £15m FY2026 contribution from exited/disposed countries is included in reported net fees, while underlying continental-European demand remains weak.",
+          "FX is a modest support to the reported FY2026 comparison late in the year, consistent with Q4 reported growth being one percentage point better than LFL."
+        ],
+        "drivers_applied": [
+          "Client/candidate confidence and weak Perm conversion",
+          "Temp & Contracting resilience",
+          "Higher average Perm fee/pricing",
+          "Germany contractor-hours, Engineering and automotive exposure",
+          "Public-sector softness in ANZ",
+          "Country exits/disposals and FX translation"
+        ],
+        "evidence": [
+          {
+            "source": "2025-08-21__has-ln-20250821-h2-8k__143890.md",
+            "locator": "Financial Review, lines 320-345",
+            "quote": "Net fees (1) | 972.4 | 1,113.6"
+          },
+          {
+            "source": "2026-07-10__has-ln-20260710-q4-8k__1572805.md",
+            "locator": "Q4 trading, lines 88-97",
+            "quote": "Temp & Contracting net fees decreased by 3%... Perm net fees decreased by 7%"
+          },
+          {
+            "source": "2026-07-10__has-ln-20260710-q4-8k__1572805.md",
+            "locator": "Germany, lines 149-156",
+            "quote": "Technology... flat... Engineering... down 20%... Construction & Property... increased by 38%"
+          },
+          {
+            "source": "https://www.robertwalters.com/content/dam/robert-walters-redesign/global/files/investors/2026/RWA%201H26%20results%20statement_FINAL.pdf",
+            "locator": "Robert Walters H1 2026 results, as summarised in analyst report",
+            "quote": "Europe fell 16% as northern-European hiring stayed difficult."
+          }
+        ],
+        "conflicts_resolved": "The latest Hays Q4 run-rate and UK hiring news point to stabilisation, whereas SThree/Robert Walters point to continued continental-European weakness. I give Hays' own Q4 disclosure precedence for the group exit rate, but retain the peer/Germany warning in the full-year decline; the financials table cross-checks that net fees equals Hays gross profit, not turnover. No direct conflict exists on the FY2025 reported base.",
+        "confidence": "medium"
+      },
+      {
+        "label": "Pre-exceptional basic EPS",
+        "units": "GBp",
+        "value": 1.42,
+        "low": 1.2,
+        "high": 1.65,
+        "method": "EPS is built from the guided profit outcome rather than from statutory Yahoo EPS, because the requested basis is pre-exceptional basic EPS. FY2025 pre-exceptional basic EPS was 1.31p on £45.6m pre-exceptional operating profit. Applying the forecast profit ratio gives 1.31p × (£46.0m/£45.6m) = 1.32p. I then add 0.10p for a modestly better conversion of operating profit into attributable earnings and a slightly lower effective share base than the FY2025 full-year base is likely to imply, yielding 1.42p. A second cross-check uses H1 FY2026 weighted-average shares of 1,595.7m: 1.42p implies approximately £22.7m pre-exceptional earnings, or 49.3% of £46.0m operating profit. That sits between FY2025's depressed implied conversion (about 46%) and FY2024's stronger implied conversion (about 61%), hence is deliberately not a recovery-level EPS assumption. Cost savings/productivity protect operating profit, but weak hiring volumes and finance/tax uncertainty limit the EPS uplift. This follows the required intuition where profit/EPS operational leverage can exceed fees but should not be extrapolated into a broad-cycle rebound.",
+        "assumptions": [
+          "FY2026 pre-exceptional operating profit is £46.0m and exceptional restructuring/property charges are excluded from both forecast EPS and operating profit.",
+          "Weighted-average basic shares are approximately 1.596bn, close to the reported H1 FY2026 1,595.7m.",
+          "Pre-exceptional earnings conversion from operating profit is about 49%, modestly above FY2025's implied level but below FY2024's level.",
+          "No material tax, net-finance-cost, or buyback effect changes pre-exceptional basic EPS by more than roughly 0.15p versus this build."
+        ],
+        "drivers_applied": [
+          "Pre-exceptional operating-profit guidance",
+          "Structural cost savings and consultant productivity",
+          "Weak Perm conversion and lower fee base",
+          "Finance cost/tax and basic share-count sensitivity",
+          "Exclusion of restructuring and property-impairment exceptional items"
+        ],
+        "evidence": [
+          {
+            "source": "2025-08-21__has-ln-20250821-h2-8k__143890.md",
+            "locator": "Financial Review table, lines 320-345",
+            "quote": "Basic earnings per share (before exceptional items) (2) | 1.31p"
+          },
+          {
+            "source": "2026-02-27__has-ln-20260227-h1-8k__642921.md",
+            "locator": "Share data, as reported in filings analyst accounting notes",
+            "quote": "H1 FY26 weighted-average shares were 1,595.7m."
+          },
+          {
+            "source": "2025-08-21__has-ln-20250821-h2-8k__143890.md",
+            "locator": "Accounting basis, as reported in filings analyst notes",
+            "quote": "basic pre-exceptional EPS 1.31p versus statutory -0.49p."
+          },
+          {
+            "source": "2026-07-10__has-ln-20260710-q4-8k__1572805.md",
+            "locator": "Trading outlook, lines 122-133",
+            "quote": "cost discipline continued to offset our lower net fees in H2 26"
+          }
+        ],
+        "conflicts_resolved": "The financials table shows statutory diluted EPS (including exceptional items) and is not used as the numerator or basis; the filings series is the controlling source because it is pre-exceptional basic EPS. There is no direct FY2026 EPS guidance. I resolve the gap by anchoring on FY2025 pre-exceptional EPS and the latest company profit outlook, with a restrained earnings-conversion assumption rather than treating statutory loss-making EPS as comparable.",
+        "confidence": "medium"
+      },
+      {
+        "label": "Pre-exceptional operating profit",
+        "units": "GBPm",
+        "value": 46.0,
+        "low": 44.5,
+        "high": 47.0,
+        "method": "The primary angle is the exact-period latest company outlook: Hays expected FY2026 pre-exceptional operating profit at the top of the external £37.0m–£46.0m consensus range, which gives £46.0m directly. The historical-base angle is £45.6m in FY2025; £46.0m is therefore £0.4m, or 0.9%, higher despite lower forecast fees. That is credible because Q4 productivity rose 8% year-on-year and management said cost discipline offset lower H2 fees, with about £50m annualised savings achieved and lower consultant headcount. The margin cross-check is £46.0m / £897.0m = 5.13% conversion, versus FY2025's 45.6/972.4 = 4.69%, a 44bp improvement: material but far below the FY2023 cycle-high conversion of about 15%, and therefore consistent with a trough, not a recovery. The conflicting peer angle is adverse—Robert Walters and SThree show that cost action does not fully immunise recruiters from Europe/Germany volume weakness—so I do not forecast above the stated top-end indication. Q4 fee stabilisation and the company’s own near-complete-year visibility outweigh peer evidence for this reported period.",
+        "assumptions": [
+          "Hays' statement that FY2026 profit will be at the top of the £37.0m–£46.0m consensus range means approximately £46.0m pre-exceptional operating profit, not an amount materially above it.",
+          "Approximately £50m annualised cost savings and reduced consultant headcount offset lower FY2026 net fees sufficiently to lift conversion by about 44bp year on year.",
+          "The expected approximately £40m restructuring charge and approximately £30m right-of-use property impairment are exceptional and excluded from this pre-exceptional forecast.",
+          "No late June accounting adjustment or FX movement causes the result to fall materially below the top-end outlook."
+        ],
+        "drivers_applied": [
+          "Top-of-consensus company outlook",
+          "Consultant net-fee productivity growth",
+          "Structural cost savings and lower headcount",
+          "Fee-volume decline and operating leverage",
+          "Germany/Europe demand weakness",
+          "Exclusion of exceptional restructuring and property charges"
+        ],
+        "evidence": [
+          {
+            "source": "2026-07-10__has-ln-20260710-q4-8k__1572805.md",
+            "locator": "Trading outlook, lines 122-126",
+            "quote": "expect FY26 pre-exceptional operating profit will be at the top of the £37.0-46.0m consensus range"
+          },
+          {
+            "source": "2025-08-21__has-ln-20250821-h2-8k__143890.md",
+            "locator": "Financial Review, lines 320-345",
+            "quote": "Operating profit (before exceptional items) (2) | 45.6"
+          },
+          {
+            "source": "2026-07-10__has-ln-20260710-q4-8k__1572805.md",
+            "locator": "Consultant net fee productivity, lines 104-109",
+            "quote": "8% YoY growth... productivity has increased now for eleven consecutive quarters"
+          },
+          {
+            "source": "https://www.reuters.com/business/recruiter-sthrees-interim-profit-plunges-sluggish-hiring-european-markets-2026-07-21/",
+            "locator": "Reuters, 21 July 2026, as summarised in analyst report",
+            "quote": "Germany—its largest single market—fell 14%... H1 pretax profit fell to £2.7m from £10.1m."
+          }
+        ],
+        "conflicts_resolved": "The company outlook is not formal numerical guidance but is the latest first-party exact-period statement and takes precedence over extrapolation. It conflicts with weak European peer results only to the extent that peers suggest downside risk; I retain £46.0m rather than exceed it because Hays' own statement already incorporates its data through Q4. The financials table's FY2024 £25.1m operating income is statutory post-exceptional and is explicitly excluded as a basis conflict.",
+        "confidence": "high"
+      }
+    ],
+    "reconciliation": "The filings report is decisive: it provides the FY2025 comparable bases, the 10 July FY2026 Q4 exit-rate/outlook, the pre-exceptional accounting basis, and quantified cost/productivity drivers. The news report is a currency check only: UK temp/placement stabilisation corroborates the Hays Q4 improvement, while Robert Walters/SThree prevent calling a broad European recovery. The financials report is a shape/unit check: it confirms that gross profit is Hays net fees and warns that its operating income and EPS are statutory, not the requested pre-exceptional measures. Accordingly, profit is anchored to Hays' top-of-range indication; fees are built from FY2025 plus the Q4 stabilising but still negative run-rate; EPS is derived from the profit forecast, prior pre-exceptional EPS, share count and conservative earnings conversion.",
+    "sanity_checks": "Net fees: £897.0m is -7.8% year on year from £972.4m; this is plausible because FY2025's -13% decline moderates with Q4 reported fees only -4%, but Perm conversion, Germany and public sector remain weak. Net fees 897.0 is GBP millions, i.e. £0.897 billion, not £897,000m or statutory turnover. It is within the stated 300–1,800 GBPm band. Pre-exceptional basic EPS: 1.42p is +8.4% year on year from 1.31p; this is plausible because guided profit is marginally higher and productivity/cost action improve conversion despite lower fees. EPS 1.42 is 1.42 pence per basic share, not £1.42 and not 0.0142 pence. It is within the stated -10 to 30 GBp band. Pre-exceptional operating profit: £46.0m is +0.9% year on year from £45.6m; this is plausible because £50m annualised savings and productivity offset lower fees, and it precisely reflects the stated top of the £37m–£46m range. Operating profit 46.0 is GBP millions, i.e. £46.0 million, not £46.0 billion; exceptional charges are excluded. It is within the stated -100 to 400 GBPm band.",
+    "known_weaknesses": "FY2026 audited results were not public at the 16 August cutoff, and the reports do not provide H1 FY2026 net fees or a full-year reported fee bridge; the net-fee estimate is therefore inferred from FY2025, Q4 growth rates, disposal information and cycle direction. The £37m–£46m figure is an external consensus range that management referenced, rather than formal company range guidance, although management explicitly indicated its top end. There is no direct FY2026 pre-exceptional EPS guidance, so EPS is most exposed to unobserved finance cost, tax and full-year basic-share-count outcomes. Peer evidence is indirect and has different geography/mix; German hiring, contractor hours, FX, and the final execution/timing of cost actions would change the estimates.",
+    "confidence": "medium"
+  },
+  "validation": [
+    "WARN: HAS / Pre-exceptional operating profit: the derivation states '45.6/972.4 = 4.69', but that computes to 0.0469. The stated arithmetic does not produce its own result — check the sum or the wording.",
+    "WARN: HAS / Pre-exceptional operating profit: no sum in the derivation lands on the submitted value 46 (closest is 4.69). Either the write-up is missing the final step or the number came from somewhere the derivation does not show."
+  ],
+  "degraded_inputs": [],
+  "seconds": 205.6
+}

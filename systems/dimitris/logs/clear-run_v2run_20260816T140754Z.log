@@ -1,0 +1,279 @@
+# Clear-run log — v2run
+# exported 2026-08-16T14:07:54.539+00:00
+
+2026-08-16T14:04:16.577+00:00  run.start  HD,ADI,HAS,DE
+2026-08-16T14:04:16.579+00:00  company.start [company:HD:company]  HD
+2026-08-16T14:04:16.579+00:00  company.start [company:ADI:company]  ADI
+2026-08-16T14:04:16.580+00:00  company.start [company:HAS:company]  HAS
+2026-08-16T14:04:16.580+00:00  company.start [company:DE:company]  DE
+2026-08-16T14:04:16.616+00:00  analyst.start [analyst:HD:filings]  Filings Analyst (HD)
+2026-08-16T14:04:17.378+00:00  analyst.start [analyst:HD:financials]  Financials Analyst (HD)
+2026-08-16T14:04:17.382+00:00  analyst.start [analyst:ADI:filings]  Filings Analyst (ADI)
+2026-08-16T14:04:17.403+00:00  analyst.start [analyst:ADI:financials]  Financials Analyst (ADI)
+2026-08-16T14:04:17.404+00:00  analyst.start [analyst:HAS:filings]  Filings Analyst (HAS)
+2026-08-16T14:04:17.426+00:00  analyst.start [analyst:HAS:financials]  Financials Analyst (HAS)
+2026-08-16T14:04:17.427+00:00  analyst.start [analyst:DE:filings]  Filings Analyst (DE)
+2026-08-16T14:04:17.457+00:00  analyst.start [analyst:DE:financials]  Financials Analyst (DE)
+2026-08-16T14:04:20.450+00:00  analyst.done [analyst:DE:financials]  Financials Analyst (DE) (3000ms)
+2026-08-16T14:04:20.459+00:00  analyst.done [analyst:ADI:financials]  Financials Analyst (ADI) (3046ms)
+2026-08-16T14:04:20.462+00:00  analyst.done [analyst:HAS:financials]  Financials Analyst (HAS) (3046ms)
+2026-08-16T14:04:20.485+00:00  step.done  DE:financials (3890ms)
+2026-08-16T14:04:20.487+00:00  step.done  ADI:financials (3906ms)
+2026-08-16T14:04:20.487+00:00  step.done  HAS:financials (3890ms)
+2026-08-16T14:04:32.475+00:00  analyst.done [analyst:HD:financials]  Financials Analyst (HD) (15094ms)
+2026-08-16T14:04:32.510+00:00  step.done  HD:financials (15937ms)
+2026-08-16T14:05:19.994+00:00  news.excluded_source [analyst:DE:news]  Firecrawl search API
+2026-08-16T14:05:19.997+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:19.999+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:20.002+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:20.002+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:20.002+00:00  tool.call  submit_result
+2026-08-16T14:05:20.002+00:00  tool.summary  5 calls
+2026-08-16T14:05:20.002+00:00  step.done  DE:news (63405ms)
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Analog Devices Investor Relations press-release index / July 23, 2026 Q3-results-date announcement
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  AlphaStreet — “Analog Devices Q3 2026 Earnings Preview — August 19, Street ...”
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Simply Wall St
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Benzinga YouTube earnings-call video
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Stock Titan
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  MarketBeat
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Yahoo Finance press-releases page
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  KuCoin, HTX, Binance and X search results on analog-chip demand
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Nemo Money, Strategic Market Research, Microchip USA and LinkedIn search results
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Pipeline Awareness
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  ExploreSemis Substack
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  Futurum Group — “Texas Instruments Q2 FY 2026 Earnings Climb on Broad-based Analog Growth”
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  economy.com discontinued semiconductor-equipment book-to-bill page
+2026-08-16T14:05:37.549+00:00  news.excluded_source [analyst:ADI:news]  SIA, Deloitte and Yole search results
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:37.551+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:37.551+00:00  tool.call  submit_result
+2026-08-16T14:05:37.551+00:00  tool.summary  9 calls
+2026-08-16T14:05:37.551+00:00  step.done  ADI:news (80969ms)
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  TIKR — https://www.tikr.com/blog/home-depot-reports-q2-2026-earnings-on-august-18-can-it-finally-break-out
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  MarketBeat — https://www.marketbeat.com/earnings/reports/2026-8-18-the-home-depot-inc-stock/
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Yahoo Finance — https://finance.yahoo.com/markets/stocks/articles/ahead-home-depot-hd-q2-131502062.html
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Reuters — https://www.reuters.com/business/home-depot-sees-fiscal-2026-sales-profit-below-estimates-ahead-investor-day-2025-12-09/
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Home Depot Q1 2026 release / PR Newswire result
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Instagram — https://www.instagram.com/p/DUJSHY8j4O5/
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  MortgagePoint — https://themortgagepoint.com/2025/05/01/remodeling-market-to-projected-reach-526-billion-by-2026/
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Realtor.com — https://www.realtor.com/advice/home-improvement/remodeling-growth-slows-2026/
+2026-08-16T14:05:38.018+00:00  news.excluded_source [analyst:HD:news]  Firecrawl searches for Home Depot IR August 2026 and Lowe's Q2 2026
+2026-08-16T14:05:38.019+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:38.019+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:38.019+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:38.019+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:38.020+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:38.020+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:38.020+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:38.020+00:00  tool.call  submit_result
+2026-08-16T14:05:38.020+00:00  tool.summary  8 calls
+2026-08-16T14:05:38.029+00:00  step.done  HD:news (81437ms)
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Hays plc Regulatory News / Investors pages
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Hays plc Analysts' Consensus page
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Investegate, LSE.co.uk, ticker.app and ADVFN Hays RNS pages
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Proactive Investors Hays PLC page
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  LinkedIn posts on KPMG/REC and SThree
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Prism Executive Recruitment August job-market report
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Instagram, Facebook, Indeed, SEEK, Rozgar Pedia and corporate careers pages returned by the Germany/ANZ search
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Financial Times result: International expansion boosts SThree
+2026-08-16T14:05:42.365+00:00  news.excluded_source [analyst:HAS:news]  Halifax research-centre Robert Walters summary
+2026-08-16T14:05:42.365+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:42.365+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:42.365+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:42.365+00:00  tool.call  firecrawl_search
+2026-08-16T14:05:42.366+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:42.366+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:42.366+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:42.366+00:00  tool.call  firecrawl_scrape
+2026-08-16T14:05:42.366+00:00  tool.call  submit_result
+2026-08-16T14:05:42.366+00:00  tool.summary  9 calls
+2026-08-16T14:05:42.366+00:00  step.done  HAS:news (85780ms)
+2026-08-16T14:06:55.707+00:00  analyst.done [analyst:ADI:filings]  Filings Analyst (ADI) (158250ms)
+2026-08-16T14:06:55.708+00:00  tool.call  list_documents
+2026-08-16T14:06:55.708+00:00  tool.call  document_outline
+2026-08-16T14:06:55.708+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  list_documents
+2026-08-16T14:06:55.709+00:00  tool.call  delegate_to_subagent
+2026-08-16T14:06:55.709+00:00  tool.call  extract_tables
+2026-08-16T14:06:55.709+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  document_outline
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_lines
+2026-08-16T14:06:55.709+00:00  tool.call  read_document_lines
+2026-08-16T14:06:55.710+00:00  tool.call  read_document_lines
+2026-08-16T14:06:55.710+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.710+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.710+00:00  tool.call  search_document
+2026-08-16T14:06:55.710+00:00  tool.call  read_document_lines
+2026-08-16T14:06:55.710+00:00  tool.call  search_document
+2026-08-16T14:06:55.710+00:00  tool.call  document_outline
+2026-08-16T14:06:55.710+00:00  tool.call  read_document_section
+2026-08-16T14:06:55.710+00:00  tool.call  submit_result
+2026-08-16T14:06:55.710+00:00  tool.summary  29 calls
+2026-08-16T14:06:55.710+00:00  step.done  ADI:filings (159141ms)
+2026-08-16T14:06:55.711+00:00  central.input [central:ADI:central]  ADI
+2026-08-16T14:06:59.236+00:00  analyst.done [analyst:DE:filings]  Filings Analyst (DE) (161735ms)
+2026-08-16T14:06:59.237+00:00  tool.call  list_documents
+2026-08-16T14:06:59.237+00:00  tool.call  document_outline
+2026-08-16T14:06:59.237+00:00  tool.call  document_outline
+2026-08-16T14:06:59.237+00:00  tool.call  document_outline
+2026-08-16T14:06:59.237+00:00  tool.call  document_outline
+2026-08-16T14:06:59.237+00:00  tool.call  delegate_to_subagent
+2026-08-16T14:06:59.237+00:00  tool.call  extract_tables
+2026-08-16T14:06:59.237+00:00  tool.call  extract_tables
+2026-08-16T14:06:59.237+00:00  tool.call  extract_tables
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_lines
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_section
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  read_document_lines
+2026-08-16T14:06:59.238+00:00  tool.call  document_outline
+2026-08-16T14:06:59.238+00:00  tool.call  document_outline
+2026-08-16T14:06:59.238+00:00  tool.call  document_outline
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  search_document
+2026-08-16T14:06:59.238+00:00  tool.call  extract_tables
+2026-08-16T14:06:59.238+00:00  tool.call  extract_tables
+2026-08-16T14:06:59.239+00:00  tool.call  submit_result
+2026-08-16T14:06:59.239+00:00  tool.summary  31 calls
+2026-08-16T14:06:59.239+00:00  step.done  DE:filings (162640ms)
+2026-08-16T14:06:59.239+00:00  central.input [central:DE:central]  DE
+2026-08-16T14:07:05.205+00:00  analyst.done [analyst:HAS:filings]  Filings Analyst (HAS) (167780ms)
+2026-08-16T14:07:05.205+00:00  tool.call  list_documents
+2026-08-16T14:07:05.205+00:00  tool.call  list_documents
+2026-08-16T14:07:05.205+00:00  tool.call  document_outline
+2026-08-16T14:07:05.205+00:00  tool.call  document_outline
+2026-08-16T14:07:05.205+00:00  tool.call  document_outline
+2026-08-16T14:07:05.206+00:00  tool.call  delegate_to_subagent
+2026-08-16T14:07:05.206+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.206+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.206+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.206+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.206+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  document_outline
+2026-08-16T14:07:05.206+00:00  tool.call  document_outline
+2026-08-16T14:07:05.206+00:00  tool.call  document_outline
+2026-08-16T14:07:05.206+00:00  tool.call  document_outline
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.206+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  extract_tables
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  read_document_section
+2026-08-16T14:07:05.207+00:00  tool.call  submit_result
+2026-08-16T14:07:05.207+00:00  tool.summary  47 calls
+2026-08-16T14:07:05.207+00:00  step.done  HAS:filings (168608ms)
+2026-08-16T14:07:05.208+00:00  central.input [central:HAS:central]  HAS
+2026-08-16T14:07:18.236+00:00  analyst.done [analyst:HD:filings]  Filings Analyst (HD) (181594ms)
+2026-08-16T14:07:18.237+00:00  tool.call  list_documents
+2026-08-16T14:07:18.237+00:00  tool.call  document_outline
+2026-08-16T14:07:18.237+00:00  tool.call  document_outline
+2026-08-16T14:07:18.237+00:00  tool.call  list_documents
+2026-08-16T14:07:18.237+00:00  tool.call  delegate_to_subagent
+2026-08-16T14:07:18.237+00:00  tool.call  extract_tables
+2026-08-16T14:07:18.237+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.237+00:00  tool.call  document_outline
+2026-08-16T14:07:18.237+00:00  tool.call  document_outline
+2026-08-16T14:07:18.237+00:00  tool.call  document_outline
+2026-08-16T14:07:18.238+00:00  tool.call  list_documents
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  document_outline
+2026-08-16T14:07:18.238+00:00  tool.call  document_outline
+2026-08-16T14:07:18.238+00:00  tool.call  search_document
+2026-08-16T14:07:18.238+00:00  tool.call  search_document
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.238+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.239+00:00  tool.call  read_document_section
+2026-08-16T14:07:18.239+00:00  tool.call  document_outline
+2026-08-16T14:07:18.239+00:00  tool.call  document_outline
+2026-08-16T14:07:18.239+00:00  tool.call  document_outline
+2026-08-16T14:07:18.239+00:00  tool.call  document_outline
+2026-08-16T14:07:18.239+00:00  tool.call  extract_tables
+2026-08-16T14:07:18.239+00:00  tool.call  submit_result
+2026-08-16T14:07:18.239+00:00  tool.summary  40 calls
+2026-08-16T14:07:18.239+00:00  step.done  HD:filings (181656ms)
+2026-08-16T14:07:18.240+00:00  central.input [central:HD:central]  HD
+2026-08-16T14:07:28.321+00:00  central.done [central:ADI:central]  ADI
+2026-08-16T14:07:28.321+00:00  tool.call [central:ADI:central]  submit_result
+2026-08-16T14:07:28.321+00:00  tool.summary [central:ADI:central]  1 calls
+2026-08-16T14:07:28.321+00:00  step.done [central:ADI:central]  ADI:central (32608ms)
+2026-08-16T14:07:28.322+00:00  company.done [company:ADI:company]  ADI (191750ms)
+2026-08-16T14:07:40.999+00:00  central.done [central:DE:central]  DE
+2026-08-16T14:07:40.999+00:00  tool.call [central:DE:central]  submit_result
+2026-08-16T14:07:40.999+00:00  tool.summary [central:DE:central]  1 calls
+2026-08-16T14:07:40.999+00:00  step.done [central:DE:central]  DE:central (41765ms)
+2026-08-16T14:07:41.001+00:00  company.done [company:DE:company]  DE (204421ms)
+2026-08-16T14:07:42.149+00:00  central.done [central:HAS:central]  HAS
+2026-08-16T14:07:42.150+00:00  tool.call [central:HAS:central]  submit_result
+2026-08-16T14:07:42.150+00:00  tool.summary [central:HAS:central]  1 calls
+2026-08-16T14:07:42.150+00:00  step.done [central:HAS:central]  HAS:central (36953ms)
+2026-08-16T14:07:42.150+00:00  company.done [company:HAS:company]  HAS (205578ms)
+2026-08-16T14:07:54.508+00:00  central.done [central:HD:central]  HD
+2026-08-16T14:07:54.509+00:00  tool.call [central:HD:central]  submit_result
+2026-08-16T14:07:54.510+00:00  tool.summary [central:HD:central]  1 calls
+2026-08-16T14:07:54.510+00:00  step.done [central:HD:central]  HD:central (36280ms)
+2026-08-16T14:07:54.511+00:00  company.done [company:HD:company]  HD (217937ms)

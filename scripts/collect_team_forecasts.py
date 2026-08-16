@@ -28,9 +28,33 @@ sys.path.insert(0, str(ROOT))
 
 from src.config import load_companies  # noqa: E402
 
+# The other two systems now live in the repository, under systems/, so the
+# ensemble reproduces from a single clone. Previously these were sibling folders
+# that existed on one laptop and in no repository: anywhere else both resolved to
+# nothing, collect reported zero forecasts for two of the three systems, and the
+# "ensemble" silently voted on one member while check:submission still passed.
+#
+# The sibling paths are kept as a fallback so an existing local layout keeps
+# working unchanged.
 EPS_DIR = ROOT.parent
-ADRIAN_RUN = EPS_DIR / "team-adrian" / "logs" / "full-run.json"
-DIMITRIS_DASHBOARD = EPS_DIR / "team-dimitris" / "dashboard.html"
+
+
+def _first_existing(*candidates: Path) -> Path:
+    """The first path that exists, else the last (so error messages name it)."""
+    for path in candidates:
+        if path.exists():
+            return path
+    return candidates[-1]
+
+
+ADRIAN_RUN = _first_existing(
+    ROOT / "systems" / "adrian" / "logs" / "full-run.json",
+    EPS_DIR / "team-adrian" / "logs" / "full-run.json",
+)
+DIMITRIS_DASHBOARD = _first_existing(
+    ROOT / "systems" / "dimitris" / "dashboard.html",
+    EPS_DIR / "team-dimitris" / "dashboard.html",
+)
 
 # Dimitris' dashboard prints one row per metric:
 #   <tr><td><strong>ADI</strong></td><td>Revenue</td>

@@ -1,0 +1,85 @@
+[
+  {
+    "ticker": "DE",
+    "period": "FY2025Q3",
+    "as_of": "2025-08-13",
+    "elapsed_s": 38.2,
+    "tool_calls": 22,
+    "leak_check": {
+      "cutoff": "2025-08-13",
+      "leaked_documents": [],
+      "clean": true
+    },
+    "metrics": {
+      "Worldwide net sales and revenues": {
+        "forecast": 10734.7539,
+        "actual": 12018.0,
+        "units": "USDm",
+        "our_error": 1283.2461,
+        "pct_error": 10.678,
+        "floor": 60.09,
+        "competition_score": null,
+        "note": "no analyst reference available for this period"
+      },
+      "Diluted EPS (GAAP)": {
+        "forecast": 4.6656,
+        "actual": 4.76,
+        "units": "USD / share",
+        "our_error": 0.0944,
+        "pct_error": 1.983,
+        "floor": 0.0238,
+        "competition_score": null,
+        "note": "no analyst reference available for this period"
+      },
+      "Production & Precision Ag operating profit": {
+        "forecast": 1029.2222,
+        "actual": 580.0,
+        "units": "USDm",
+        "our_error": 449.2222,
+        "pct_error": 77.452,
+        "floor": 2.9,
+        "competition_score": null,
+        "note": "no analyst reference available for this period"
+      }
+    }
+  },
+  {
+    "ticker": "ADI",
+    "period": "FY2026Q2",
+    "as_of": "2026-05-19",
+    "elapsed_s": 37.5,
+    "tool_calls": 27,
+    "leak_check": {
+      "cutoff": "2026-05-19",
+      "leaked_documents": [],
+      "clean": true
+    },
+    "metrics": {
+      "Revenue": {
+        "forecast": 3982.1393,
+        "actual": 3620.0,
+        "units": "USDm",
+        "our_error": 362.1393,
+        "pct_error": 10.004,
+        "floor": 18.1,
+        "competition_score": null,
+        "note": "no analyst reference available for this period"
+      },
+      "Adjusted diluted EPS": {
+        "forecast": 3.34,
+        "actual": null,
+        "note": "no actual recorded for this metric"
+      },
+      "Adjusted gross margin": {
+        "forecast": 73.5926,
+        "actual": 73.0,
+        "units": "%",
+        "our_error": 0.5926,
+        "pct_error": 0.812,
+        "floor": 0.5,
+        "competition_score": null,
+        "note": "no analyst reference available for this period"
+      }
+    }
+  }
+]

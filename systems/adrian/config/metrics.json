@@ -1,0 +1,154 @@
+{
+  "_comment": "Transcribed from organizer challenge/companies.json, plus assertions that guard the known 5.0 traps. period_end MUST be verified against the corpus before any forecasting - see STRATEGY.md section 4.",
+  "source": "challenge/companies.json (organizer-supplied)",
+  "outputFormat": "xlsx",
+  "companies": [
+    {
+      "company": "Home Depot",
+      "ticker": "HD",
+      "period": "FY2026Q2",
+      "periodType": "quarter",
+      "periodEnd": "2026-08-02",
+      "periodEndVerified": false,
+      "corpusDir": "home-depot",
+      "reportingCurrency": "USD",
+      "outputFile": "HD-FY2026Q2.xlsx",
+      "metrics": [
+        {
+          "label": "Net sales",
+          "units": "USDm",
+          "basis": "reported",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Adjusted diluted EPS",
+          "units": "USD / share",
+          "basis": "adjusted",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Comparable sales, total company",
+          "units": "%",
+          "basis": "reported",
+          "scoreFloor": "0.5pp",
+          "bounds": null
+        }
+      ],
+      "periodEndBasis": "Q1 FY2026 ended May 3 2026 per 10-Q; +13 weeks",
+      "periodEndMethod": "derived"
+    },
+    {
+      "company": "Analog Devices",
+      "ticker": "ADI",
+      "period": "FY2026Q3",
+      "periodType": "quarter",
+      "periodEnd": "2026-08-01",
+      "periodEndVerified": false,
+      "corpusDir": "analog-devices",
+      "reportingCurrency": "USD",
+      "outputFile": "ADI-FY2026Q3.xlsx",
+      "metrics": [
+        {
+          "label": "Revenue",
+          "units": "USDm",
+          "basis": "reported",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Adjusted diluted EPS",
+          "units": "USD / share",
+          "basis": "adjusted",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Adjusted gross margin",
+          "units": "%",
+          "basis": "adjusted",
+          "scoreFloor": "0.5pp",
+          "bounds": null
+        }
+      ],
+      "periodEndBasis": "Q2 FY2026 ended May 2 2026 per 10-Q; +13 weeks",
+      "periodEndMethod": "derived"
+    },
+    {
+      "company": "Hays plc",
+      "ticker": "LSE:HAS",
+      "period": "FY2026",
+      "periodType": "full_year",
+      "periodEnd": "2026-06-30",
+      "periodEndVerified": true,
+      "corpusDir": "hays",
+      "reportingCurrency": "GBP",
+      "outputFile": "HAS-FY2026.xlsx",
+      "metrics": [
+        {
+          "label": "Net fees",
+          "units": "GBPm",
+          "basis": "reported",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Pre-exceptional basic EPS",
+          "units": "GBp",
+          "unitsNote": "PENCE, not pounds. A pounds/pence slip is a 100x error and a capped 5.0. Assert hard.",
+          "basis": "pre-exceptional",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Pre-exceptional operating profit",
+          "units": "GBPm",
+          "basis": "pre-exceptional",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        }
+      ],
+      "periodEndBasis": "'30 June 2026' stated in 2026-07-10 Q4 trading update",
+      "periodEndMethod": "stated"
+    },
+    {
+      "company": "Deere & Company",
+      "ticker": "DE",
+      "period": "FY2026Q3",
+      "periodType": "quarter",
+      "periodEnd": "2026-08-02",
+      "periodEndVerified": false,
+      "corpusDir": "deere",
+      "reportingCurrency": "USD",
+      "outputFile": "DE-FY2026Q3.xlsx",
+      "metrics": [
+        {
+          "label": "Worldwide net sales and revenues",
+          "units": "USDm",
+          "basis": "reported",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Diluted EPS (GAAP)",
+          "units": "USD / share",
+          "unitsNote": "GAAP, not adjusted. HD and ADI are adjusted; this one is not. Assert basis.",
+          "basis": "gaap",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        },
+        {
+          "label": "Production & Precision Ag operating profit",
+          "units": "USDm",
+          "unitsNote": "Segment measure - lives in the segment note, not the face of the income statement.",
+          "basis": "reported",
+          "scoreFloor": "0.5% of reported",
+          "bounds": null
+        }
+      ],
+      "periodEndBasis": "Q2 FY2026 ended May 3 2026 per Q2 10-Q segment table; +13 weeks",
+      "periodEndMethod": "derived"
+    }
+  ]
+}

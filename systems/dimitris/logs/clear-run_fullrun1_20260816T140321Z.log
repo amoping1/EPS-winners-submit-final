@@ -1,0 +1,103 @@
+# Clear-run log — fullrun1
+# exported 2026-08-16T14:03:21.248+00:00
+
+2026-08-16T12:07:02.931+00:00  run.start  HD,ADI,HAS,DE
+2026-08-16T12:07:02.932+00:00  company.start [company:HD:company]  HD
+2026-08-16T12:07:02.933+00:00  company.start [company:ADI:company]  ADI
+2026-08-16T12:07:02.933+00:00  company.start [company:HAS:company]  HAS
+2026-08-16T12:07:02.935+00:00  company.start [company:DE:company]  DE
+2026-08-16T12:07:02.984+00:00  analyst.start [analyst:HD:filings]  Filings Analyst (HD)
+2026-08-16T12:07:03.743+00:00  analyst.start [analyst:HD:financials]  Financials Analyst (HD)
+2026-08-16T12:07:03.747+00:00  analyst.start [analyst:ADI:filings]  Filings Analyst (ADI)
+2026-08-16T12:07:03.772+00:00  analyst.start [analyst:ADI:financials]  Financials Analyst (ADI)
+2026-08-16T12:07:03.773+00:00  analyst.start [analyst:HAS:filings]  Filings Analyst (HAS)
+2026-08-16T12:07:03.793+00:00  analyst.start [analyst:HAS:financials]  Financials Analyst (HAS)
+2026-08-16T12:07:03.795+00:00  analyst.start [analyst:DE:filings]  Filings Analyst (DE)
+2026-08-16T12:07:03.818+00:00  analyst.start [analyst:DE:financials]  Financials Analyst (DE)
+2026-08-16T12:07:06.801+00:00  analyst.done [analyst:HD:financials]  Financials Analyst (HD) (3047ms)
+2026-08-16T12:07:06.809+00:00  analyst.done [analyst:ADI:financials]  Financials Analyst (ADI) (3016ms)
+2026-08-16T12:07:06.818+00:00  analyst.done [analyst:DE:financials]  Financials Analyst (DE) (2983ms)
+2026-08-16T12:07:06.821+00:00  analyst.done [analyst:HAS:financials]  Financials Analyst (HAS) (3030ms)
+2026-08-16T12:07:06.854+00:00  step.done  HD:financials (3922ms)
+2026-08-16T12:07:06.854+00:00  step.done  ADI:financials (3922ms)
+2026-08-16T12:07:06.854+00:00  step.done  DE:financials (3922ms)
+2026-08-16T12:07:06.855+00:00  step.done  HAS:financials (3922ms)
+2026-08-16T12:08:13.819+00:00  news.excluded_source [analyst:DE:news]  Firecrawl search service
+2026-08-16T12:08:13.826+00:00  step.done  DE:news (70891ms)
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  directorstalkinterviews.com
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  finance.yahoo.com/quote/HASL.XC/earnings/HASL.XC-Q4-2026-earnings_call-541719.html
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  linkedin.com/posts/james-hilton-86658061_today-we-released-hays-q4-trading-update-activity-7481359545857089536-CLaG
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  joshthompson.co.uk/shares/hays-plc/
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  globalbankingandfinance.com
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  investegate.co.uk/announcement/rns/hays--has/pre-close-year-end-trading-update/8937172
+2026-08-16T12:08:28.489+00:00  news.excluded_source [analyst:HAS:news]  investegate.co.uk/company/HAS
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  londonstockexchange.com/stock/HAS/hays-plc/analysis
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  investorshub.advfn.com
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  ticker.app
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  lse.co.uk/rns/HAS
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  proactiveinvestors.co.uk
+2026-08-16T12:08:28.491+00:00  news.excluded_source [analyst:HAS:news]  staffingindustry.com/news/global-daily-news/hays-full-year-turnover-and-net-fees-down-amid-challenging-year
+2026-08-16T12:08:28.491+00:00  step.done  HAS:news (85562ms)
+2026-08-16T12:08:30.441+00:00  news.excluded_source [analyst:ADI:news]  Analog Devices Investor Relations press-release index and July 23, 2026 Q3-results-date announcement
+2026-08-16T12:08:30.441+00:00  news.excluded_source [analyst:ADI:news]  AlphaStreet — "Analog Devices Q3 2026 Earnings Preview — August 19, Street Expects 2.93 EPS"
+2026-08-16T12:08:30.441+00:00  news.excluded_source [analyst:ADI:news]  Simply Wall St — ADI earnings and revenue performance
+2026-08-16T12:08:30.441+00:00  news.excluded_source [analyst:ADI:news]  Stock Titan — "Analog Devices Sets Aug. 19 Q3 Financial Results"
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  MarketBeat — ADI earnings report and earnings page
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  Yahoo Finance ADI press-releases page
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  YouTube/Benzinga Q2 FY26 earnings-call video
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  FTCElectronics — "ADI Expected to Adjust Prices Again in 2026"
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  Astute Group — "Rising Component Lead Times Pressure Q3 Manufacturing Schedules"
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  Strategic Market Research, NextMSC, Data Bridge Market Research and MarketResearchFuture
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  LinkedIn, Facebook and X posts returned in search
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  StockStory — NXP Semiconductors and Texas Instruments stocks trade up
+2026-08-16T12:08:30.442+00:00  news.excluded_source [analyst:ADI:news]  MicrochipUSA — "Analog Devices and NXP Price Increases in 2026"
+2026-08-16T12:08:30.442+00:00  step.done  ADI:news (87500ms)
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  https://www.tikr.com/blog/home-depot-reports-q2-2026-earnings-on-august-18-can-it-finally-break-out
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  Yahoo Finance — Ahead of Home Depot (HD) Q2 Earnings: Get Ready With...
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  MarketBeat — Home Depot Q2 2026 Earnings Report
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  MarketChameleon — HD Press Releases Home Depot
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  StockTitan / Rhea-AI — The Home Depot Sets Second-Quarter Earnings Call Aug. 18
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  Reddit
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  Instagram
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  YouTube — Lowe's Companies (LOW) Q1 FY 2026 Earnings
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  pipelineawareness.org
+2026-08-16T12:08:34.481+00:00  news.excluded_source [analyst:HD:news]  Facebook
+2026-08-16T12:08:34.482+00:00  news.excluded_source [analyst:HD:news]  finance.yahoo.com — Lowe's Companies, Inc. Q1 2026 Earnings Call Summary
+2026-08-16T12:08:34.482+00:00  news.excluded_source [analyst:HD:news]  realtor.com — Remodeling Growth To Slow in 2026—But Not in These Cities
+2026-08-16T12:08:34.482+00:00  news.excluded_source [analyst:HD:news]  themortgagepoint.com
+2026-08-16T12:08:34.482+00:00  step.done  HD:news (91547ms)
+2026-08-16T12:09:37.540+00:00  analyst.done [analyst:ADI:filings]  Filings Analyst (ADI) (153719ms)
+2026-08-16T12:09:37.541+00:00  step.done  ADI:filings (154610ms)
+2026-08-16T12:09:37.542+00:00  central.input [central:ADI:central]  ADI
+2026-08-16T12:09:50.415+00:00  analyst.done [analyst:DE:filings]  Filings Analyst (DE) (166500ms)
+2026-08-16T12:09:50.417+00:00  step.done  DE:filings (167485ms)
+2026-08-16T12:09:50.420+00:00  central.input [central:DE:central]  DE
+2026-08-16T12:09:53.134+00:00  analyst.done [analyst:HD:filings]  Filings Analyst (HD) (170140ms)
+2026-08-16T12:09:53.136+00:00  step.done  HD:filings (170203ms)
+2026-08-16T12:09:53.138+00:00  central.input [central:HD:central]  HD
+2026-08-16T12:09:58.221+00:00  analyst.done [analyst:HAS:filings]  Filings Analyst (HAS) (174405ms)
+2026-08-16T12:09:58.222+00:00  step.done  HAS:filings (175282ms)
+2026-08-16T12:09:58.225+00:00  central.input [central:HAS:central]  HAS
+2026-08-16T12:10:07.262+00:00  central.done [central:ADI:central]  ADI
+2026-08-16T12:10:07.262+00:00  step.done [central:ADI:central]  ADI:central (29717ms)
+2026-08-16T12:10:07.263+00:00  company.done [company:ADI:company]  ADI (184328ms)
+2026-08-16T12:10:24.572+00:00  central.done [central:HAS:central]  HAS
+2026-08-16T12:10:24.574+00:00  step.done [central:HAS:central]  HAS:central (26358ms)
+2026-08-16T12:10:24.575+00:00  company.done [company:HAS:company]  HAS (201641ms)
+2026-08-16T12:10:29.116+00:00  central.done [central:HD:central]  HD
+2026-08-16T12:10:29.118+00:00  step.done [central:HD:central]  HD:central (35984ms)
+2026-08-16T12:10:29.118+00:00  company.done [company:HD:company]  HD (206187ms)
+2026-08-16T12:10:29.986+00:00  central.done [central:DE:central]  DE
+2026-08-16T12:10:29.986+00:00  step.done [central:DE:central]  DE:central (39562ms)
+2026-08-16T12:10:29.986+00:00  company.done [company:DE:company]  DE (207047ms)
+2026-08-16T14:02:46.751+00:00  run.start  HD
+2026-08-16T14:02:46.762+00:00  company.start [company:HD:company#db62]  HD
+2026-08-16T14:02:46.765+00:00  step.reused [company:HD:company#db62]  HD:filings
+2026-08-16T14:02:46.766+00:00  step.reused [company:HD:company#db62]  HD:news
+2026-08-16T14:02:46.767+00:00  step.reused [company:HD:company#db62]  HD:financials
+2026-08-16T14:02:46.771+00:00  central.input [central:HD:central#ced2]  HD
+2026-08-16T14:03:21.227+00:00  central.done [central:HD:central#ced2]  HD
+2026-08-16T14:03:21.229+00:00  tool.call [central:HD:central#ced2]  submit_result
+2026-08-16T14:03:21.229+00:00  tool.summary [central:HD:central#ced2]  1 calls
+2026-08-16T14:03:21.229+00:00  step.done [central:HD:central#ced2]  HD:central (34469ms)
+2026-08-16T14:03:21.231+00:00  company.done [company:HD:company#db62]  HD (34469ms)

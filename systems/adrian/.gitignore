@@ -1,0 +1,25 @@
+# Secrets - never commit. Rules prohibit secrets in repo, HTML, or logs.
+.env
+.env.*
+!.env.example
+
+# Organizer private entry form - explicitly must not be committed
+entry.json
+
+# Generated workbooks
+submission/*.xlsx
+
+# Organizer corpus, if it ever gets copied in here (100 MB, lives outside this repo)
+challenge/offline-data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Scratch
+research/
+.DS_Store
+*.log
+!logs/.gitkeep

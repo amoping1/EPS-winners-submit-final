@@ -1,0 +1,152 @@
+{
+  "run_id": "v2run",
+  "generated_at": "2026-08-16T14:07:54+00:00",
+  "workbook": "ADI-FY2026Q3.xlsx",
+  "forecast": {
+    "ticker": "ADI",
+    "period": "FY2026Q3",
+    "metrics": [
+      {
+        "label": "Revenue",
+        "units": "USDm",
+        "value": 3940.0,
+        "low": 3830.0,
+        "high": 4020.0,
+        "method": "I triangulated (1) the exact-period company outlook, $3,900m +/-$100m; (2) the same-quarter base, FY2025 Q3 revenue of $2,880m, which makes $3,940m a 36.8% Y/Y increase; (3) the current recovery run-rate, FY2026 Q2 revenue of $3,623m followed by the guided Q3 midpoint implies 7.6% sequential growth, while $3,940m implies 8.7%; and (4) the independent peer read-across, where TI described broad industrial, data-center and automotive growth and guided Q3 above the cited LSEG estimate. The direct guidance angle gives $3,900m, the Y/Y recovery angle supports roughly $3.9bn because Q2 was already +37% Y/Y on broad demand, and the peer angle pulls modestly above midpoint; I weighted the first-party guide most heavily and added $40m rather than extrapolating Q2's exceptional growth. This applies the intuition's cyclicality discipline: industrial/communications are in a genuine recovery with lean channel inventory and backlog support, but a 30%+ Y/Y comparison is largely a trough-base effect and should not be mechanically accelerated. Q3 also has some consumer seasonal support. No calendar, acquisition, or reported FX distortion was identified.",
+        "assumptions": [
+          "ADI converts its constructive industrial, AI/data-center and automotive order book without a material late-quarter cancellation or distributor inventory rebuild.",
+          "Channel inventory remains within management's six-to-seven-week range, so Q3 shipments reflect end-demand recovery rather than a temporary channel fill.",
+          "TI's broad analog recovery is directionally applicable to ADI but does not justify a revenue outcome materially above ADI's $4.0bn guided ceiling."
+        ],
+        "drivers_applied": [
+          "Broad industrial and communications demand recovery",
+          "AI data-center optical and power demand",
+          "Automotive content/share gains and EV BMS normalization",
+          "Lean channel inventories and constructive order-book/backlog signals",
+          "Consumer seasonal strength in fiscal Q3",
+          "Texas Instruments industrial/data-center/automotive read-across"
+        ],
+        "evidence": [
+          {
+            "source": "2026-05-20__adi-us-20260520-q2-8k__1040581.md",
+            "locator": "Outlook for the Third Quarter of Fiscal Year 2026",
+            "quote": "forecasting revenue of $3.9 billion, +/- $100 million"
+          },
+          {
+            "source": "2025-08-20__adi-us-20250820-q3-8k__155976.md",
+            "locator": "Results Summary, lines 49-86",
+            "quote": "Revenue ... $ ... 2,880"
+          },
+          {
+            "source": "2026-05-20__adi-us-20260520-call-pres__1041157.md",
+            "locator": "Second Quarter Earnings Call, lines 35-51",
+            "quote": "constructive demand signals in our order book and backlog"
+          },
+          {
+            "source": "https://www.reuters.com/business/texas-instruments-forecasts-quarterly-revenue-above-estimates-2026-07-22/",
+            "locator": "Reuters, published 2026-07-22",
+            "quote": "broad growth led by industrial, data center and automotive"
+          }
+        ],
+        "conflicts_resolved": "No direct conflict: the filing's $3.9bn exact-period outlook is the anchor and the Reuters TI read-through is supportive but indirect. The financials table's $3,623.5m Q2 versus the filing's rounded $3,623m is immaterial; the filing wins for point-in-time, exact reported basis.",
+        "confidence": "high"
+      },
+      {
+        "label": "Adjusted diluted EPS",
+        "units": "USD / share",
+        "value": 3.36,
+        "low": 3.18,
+        "high": 3.48,
+        "method": "I used three linked angles. First, management's exact Q3 adjusted-EPS guide is $3.30 +/-$0.15. Second, applying the revenue conclusion ($3,940m, 1.03% above the $3,900m revenue midpoint) to the guided EPS midpoint gives approximately $3.33 before incremental operating leverage. Third, Q2 delivered $3.09 adjusted EPS on $3,623m revenue; the $317m revenue step to $3,940m, together with continued fixed-cost absorption, supports a $0.27 increase to $3.36. The same-quarter check is FY2025 Q3 EPS of $2.05, so $3.36 is +63.9% Y/Y, plausible because revenue is +36.8% from a recovery base and gross margin/utilization have improved sharply. The guide angle pulls to $3.30; revenue/margin operating leverage and favorable peer demand pull to $3.33-$3.36. I selected $3.36, only modestly above guide, because ADI's Q2 margin improvement was driven by favorable mix, utilization and pricing, while avoiding straight-line extrapolation of EPS growth in a cyclical recovery. The projected reconciliation's $0.70 acquisition-related/tax adjustment confirms the required non-GAAP basis rather than GAAP EPS.",
+        "assumptions": [
+          "Revenue is approximately $3,940m and the incremental revenue retains sufficient contribution margin to lift adjusted EPS modestly above the $3.30 guide midpoint.",
+          "Favorable mix, utilization and pricing persist through quarter-end; there is no material price concession, manufacturing disruption, or adverse tax/share-count movement versus the guidance model.",
+          "The non-GAAP adjustment framework, including the projected $0.70 per-share acquisition-related/tax-effect adjustment, remains materially as contemplated in the May outlook."
+        ],
+        "drivers_applied": [
+          "Revenue above guidance midpoint",
+          "Operating leverage from higher utilization",
+          "Favorable mix, pricing and manufacturing fixed-cost absorption",
+          "AI/data-center and industrial demand recovery",
+          "Management adjusted-EPS guidance"
+        ],
+        "evidence": [
+          {
+            "source": "2026-05-20__adi-us-20260520-q2-8k-2__1040614.md",
+            "locator": "Reconciliation of Projected GAAP to Non-GAAP Results, lines 379-396",
+            "quote": "Earnings per share ... Adjusted ... $3.30 ... (+/- $0.15)"
+          },
+          {
+            "source": "2026-05-20__adi-us-20260520-q2-8k__1040581.md",
+            "locator": "Results Summary, lines 37-51",
+            "quote": "Adjusted diluted earnings per share | $ | 3.09"
+          },
+          {
+            "source": "2025-08-20__adi-us-20250820-q3-8k__155976.md",
+            "locator": "Results Summary, lines 49-86",
+            "quote": "Adjusted diluted earnings per share | $ | 2.05"
+          },
+          {
+            "source": "2026-05-20__adi-us-20260520-call-pres__1041157.md",
+            "locator": "Second Quarter Earnings Call, lines 35-51",
+            "quote": "gross margin was 73%, up 180 basis points sequentially and 360 basis points year-over-year, driven by favorable mix, higher utilization, and pricing"
+          }
+        ],
+        "conflicts_resolved": "No conflict on basis: the filings provide adjusted diluted EPS, whereas the financials table provides only GAAP diluted EPS ($2.40 in Q2) and explicitly says it is not a substitute. I used the filing guidance and adjusted history; the GAAP table was used only as an operating-leverage shape check.",
+        "confidence": "high"
+      },
+      {
+        "label": "Adjusted gross margin",
+        "units": "%",
+        "value": 73.7,
+        "low": 72.9,
+        "high": 74.4,
+        "method": "There is no direct adjusted-gross-margin guide, so I combined the supported angles rather than substituting the guided 49.0% adjusted operating margin. The latest actual adjusted GM is 73.0% in Q2, up 180bp sequentially and 360bp Y/Y, explicitly driven by favorable mix, higher utilization and pricing. Revenue is forecast to rise from $3,623m to $3,940m (+8.7% sequentially), so the fixed-cost-absorption angle supports further, but decelerating, expansion: I apply +70bp to 73.7%. The same-quarter trend gives 69.2% in FY2025 Q3; 73.7% is +450bp Y/Y, consistent with the 36.8% revenue recovery and the fact that the prior-year margin was still below today's utilization level. As a cross-check, Q2's reported GAAP GM was 67.33% in the financials table, below the 73.0% adjusted measure as expected; it confirms that adjusted GM must not be replaced by GAAP GM. The Q2-to-Q3 trend angle alone could imply another +180bp, but I reject that extrapolation under the cyclicality instruction: pricing/mix gains and utilization usually flatten as loading normalizes. Conversely, holding GM flat at 73.0% understates the guided revenue step and supportive TI demand read-through. I therefore use 73.7%, with a wider range because margin has no explicit guide.",
+        "assumptions": [
+          "The forecast $3,940m revenue produces additional factory fixed-cost absorption rather than requiring incremental underutilized capacity or unfavorable expedite costs.",
+          "Industrial and data-center mix remains favorable and pricing is stable; consumer seasonal mix does not dilute adjusted gross margin by more than roughly 30bp.",
+          "No material change occurs in acquisition-related cost exclusions, so the reported adjusted-GM definition remains comparable with Q2."
+        ],
+        "drivers_applied": [
+          "Favorable product/end-market mix",
+          "Higher manufacturing utilization and fixed-cost absorption",
+          "Pricing",
+          "Industrial and AI/data-center demand",
+          "Cyclical recovery moderation",
+          "Peer analog-demand read-across"
+        ],
+        "evidence": [
+          {
+            "source": "2026-05-20__adi-us-20260520-q2-8k__1040581.md",
+            "locator": "Results Summary, lines 37-51",
+            "quote": "Adjusted gross margin percentage | 73.0 | %"
+          },
+          {
+            "source": "2026-05-20__adi-us-20260520-call-pres__1041157.md",
+            "locator": "Second Quarter Earnings Call, lines 35-51",
+            "quote": "gross margin was 73%, up 180 basis points sequentially and 360 basis points year-over-year, driven by favorable mix, higher utilization, and pricing"
+          },
+          {
+            "source": "2025-08-20__adi-us-20250820-q3-8k__155976.md",
+            "locator": "Results Summary, lines 49-86",
+            "quote": "Adjusted gross margin percentage | 69.2 %"
+          },
+          {
+            "source": "2026-05-20__adi-us-20260520-q2-10q__1040607.md",
+            "locator": "Gross Margin, lines 906-915",
+            "quote": "primarily due to higher utilization of our manufacturing fixed costs as a result of increased customer demand"
+          }
+        ],
+        "conflicts_resolved": "There is an evidence limitation rather than a conflict: management guided adjusted operating margin of 49.0% +/-100bp but did not guide adjusted gross margin. I did not treat operating margin as gross margin. The financials table's 67.33% Q2 GAAP GM is lower than the filing's 73.0% adjusted GM because the bases differ; the filing wins for the requested adjusted metric.",
+        "confidence": "medium"
+      }
+    ],
+    "reconciliation": "The filings analyst is the primary source and determines all three bases, comparable-quarter figures, Q3 revenue/EPS guidance, and management drivers. Revenue and adjusted EPS start from the May 20 exact-period guidance; gross margin is constructed from adjusted historical margin, revenue loading, and management's stated mix/utilization/pricing drivers because no GM guide exists. The news analyst supplies one supportive but deliberately lightly weighted post-freeze TI peer read-through; no ADI-specific post-freeze update or warning displaced company guidance. The financials analyst is a shape and scale cross-check only: its GAAP revenue broadly ties to filings, but its GAAP EPS and GAAP GM are not substituted for adjusted metrics.",
+    "sanity_checks": "Revenue: $3,940m is +36.8% versus FY2025 Q3 revenue of $2,880m; this large increase is plausible because ADI is comparing against a still-recovering prior-year quarter, while Q2 was already +37% Y/Y on broad industrial/communications demand. Revenue 3,940 is USD millions, i.e. USD 3.94 billion, not USD 3.94m or USD 3.94 trillion. It is inside the expected 500-6,000 USDm band. Adjusted diluted EPS: $3.36/share is +63.9% versus FY2025 Q3 adjusted EPS of $2.05; EPS growth exceeds revenue growth plausibly because the recovery lifts mix and factory fixed-cost absorption. EPS 3.36 is USD 3.36 per diluted share, not 0.0336 or 336 dollars. It is inside the expected 0.2-8 USD/share band. Adjusted gross margin: 73.7 is +4.5 percentage points versus FY2025 Q3 adjusted GM of 69.2%; the increase is plausible given Q2's 360bp Y/Y improvement and continued utilization/pricing, though expansion is moderated sequentially. Adjusted gross margin 73.7 means 73.7%, not 0.737% or 737%; it is inside the expected 30-90% band.",
+    "known_weaknesses": "There is no ADI post-freeze trading update, pre-announcement, bookings disclosure, or actual Q3 result as of August 16; Q3 results were scheduled for August 19. The news evidence is a single TI peer read-through and cannot quantify ADI's revenue or mix. ADI gave no adjusted gross-margin outlook, making the 73.7% forecast the least directly anchored metric and most exposed to end-market mix, pricing, and actual factory loading. The financials table is short (five quarters), GAAP-only for EPS/GM, and not point-in-time filtered. A late-quarter ADI channel/inventory update, a pre-announcement, or evidence that TI strength did not translate to ADI industrial/automotive would change the estimates.",
+    "confidence": "medium"
+  },
+  "validation": [],
+  "degraded_inputs": [],
+  "seconds": 191.8
+}

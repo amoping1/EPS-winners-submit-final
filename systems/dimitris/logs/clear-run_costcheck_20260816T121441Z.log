@@ -1,0 +1,27 @@
+# Clear-run log — costcheck
+# exported 2026-08-16T12:14:41.474+00:00
+
+2026-08-16T12:12:23.550+00:00  run.start  HD
+2026-08-16T12:12:23.550+00:00  company.start [company:HD:company]  HD
+2026-08-16T12:12:23.565+00:00  analyst.start [analyst:HD:filings]  Filings Analyst (HD)
+2026-08-16T12:12:23.842+00:00  analyst.start [analyst:HD:financials]  Financials Analyst (HD)
+2026-08-16T12:12:25.195+00:00  analyst.done [analyst:HD:financials]  Financials Analyst (HD) (1358ms)
+2026-08-16T12:12:25.195+00:00  step.done  HD:financials (1655ms)
+2026-08-16T12:13:07.041+00:00  news.excluded_source [analyst:HD:news]  The Home Depot IR news releases page / Aug. 12, 2026 Interim Management Plans release
+2026-08-16T12:13:07.041+00:00  news.excluded_source [analyst:HD:news]  The Home Depot IR / Aug. 4, 2026 Q2 earnings-call notice
+2026-08-16T12:13:07.041+00:00  news.excluded_source [analyst:HD:news]  TIKR — Home Depot Reports Q2 2026 Earnings on August 18: Can It Finally Break Out?
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  MarketBeat — Home Depot Q2 2026 Earnings Report
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  enablx.com — LOW Q2 2026 Earnings EPS story
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  pipelineawareness.org — LOW Q2 2026 Earnings
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  vanhessen.com — Lowe's slips 3.4%
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  bvwd.ca.gov — Lowe's cross-sector consumer earnings roundup
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  Instagram remodeling-spending post
+2026-08-16T12:13:07.042+00:00  news.excluded_source [analyst:HD:news]  The MortgagePoint / Hardware Retailing / Realtor.com remodeling summaries
+2026-08-16T12:13:07.043+00:00  news.excluded_source [analyst:HD:news]  PR Newswire copies of Home Depot and Lowe's Q1 releases
+2026-08-16T12:13:07.044+00:00  step.done  HD:news (43500ms)
+2026-08-16T12:14:02.266+00:00  analyst.done [analyst:HD:filings]  Filings Analyst (HD) (98703ms)
+2026-08-16T12:14:02.268+00:00  step.done  HD:filings (98717ms)
+2026-08-16T12:14:02.268+00:00  central.input [central:HD:central]  HD
+2026-08-16T12:14:41.461+00:00  central.done [central:HD:central]  HD
+2026-08-16T12:14:41.462+00:00  step.done [central:HD:central]  HD:central (39203ms)
+2026-08-16T12:14:41.462+00:00  company.done [company:HD:company]  HD (137921ms)

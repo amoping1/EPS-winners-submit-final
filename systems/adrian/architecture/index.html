@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPS-Winners Forecast Desk</title>
+<style>
+:root{--ground:#f3f5f6;--surface:#fff;--sunk:#e9edee;--ink:#16232b;--soft:#4a5a63;
+--faint:#7d8d95;--rule:#d3dadd;--rule2:#b6c1c6;--accent:#1a6f6a;--accent-soft:#d8e8e6;
+--pass:#2e7d5b;--warn:#b07a18;--fail:#af3a2c;--pass-bg:#e2efe8;--warn-bg:#f6eeda;--fail-bg:#f7e4e1;
+--serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0f1619;
+--surface:#161f24;--sunk:#1d282e;--ink:#dee6e9;--soft:#a3b2b9;--faint:#74848c;--rule:#2a373e;
+--rule2:#3b4a52;--accent:#4fb3ac;--accent-soft:#1a3a38;--pass:#5fb98d;--warn:#d9a541;
+--fail:#e0705f;--pass-bg:#16301f;--warn-bg:#322813;--fail-bg:#34191a}}
+:root[data-theme="dark"]{--ground:#0f1619;--surface:#161f24;--sunk:#1d282e;--ink:#dee6e9;
+--soft:#a3b2b9;--faint:#74848c;--rule:#2a373e;--rule2:#3b4a52;--accent:#4fb3ac;
+--accent-soft:#1a3a38;--pass:#5fb98d;--warn:#d9a541;--fail:#e0705f;--pass-bg:#16301f;
+--warn-bg:#322813;--fail-bg:#34191a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:36px 24px 72px;display:flex;
+flex-direction:column;gap:36px}
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:16px;display:flex;
+flex-direction:column;gap:8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+color:var(--accent)}
+h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,40px);line-height:1.1;margin:0;
+font-weight:400;text-wrap:balance}
+.runbar{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:12px;
+color:var(--faint)}
+.runbar b{color:var(--ink);font-weight:600}
+p{margin:0;max-width:70ch;color:var(--soft)}
+h2{font-family:var(--serif);font-size:21px;font-weight:400;margin:0;padding-bottom:8px;
+border-bottom:1px solid var(--rule)}
+section{display:flex;flex-direction:column;gap:16px}
+.co{background:var(--surface);border:1px solid var(--rule);display:flex;
+flex-direction:column}
+.co-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;padding:16px 20px;
+border-bottom:1px solid var(--rule);background:var(--sunk)}
+.co-name{font-family:var(--serif);font-size:20px}
+.co-meta{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.co-meta b{color:var(--ink);font-weight:600}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+padding:2px 8px;background:var(--accent-soft);color:var(--accent)}
+.co-body{padding:16px 20px;display:flex;flex-direction:column;gap:18px}
+.metrics{display:flex;flex-direction:column;gap:10px}
+.metric{border-left:3px solid var(--rule2);padding:8px 0 8px 14px;display:grid;
+grid-template-columns:1fr auto;gap:4px 18px;align-items:baseline}
+.metric.ok{border-left-color:var(--pass)}
+.metric.flag{border-left-color:var(--fail)}
+.metric.soft{border-left-color:var(--warn)}
+.m-name{font-weight:650;font-size:14.5px}
+.m-val{font-family:var(--mono);font-size:19px;font-variant-numeric:tabular-nums;
+white-space:nowrap}
+.m-unit{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:6px}
+.m-line{grid-column:1/-1;font-size:13px;color:var(--soft);font-family:var(--mono)}
+.m-line .k{color:var(--faint)}
+.m-note{grid-column:1/-1;font-size:13px;color:var(--soft)}
+.spark{grid-column:1/-1;display:flex;align-items:flex-end;gap:3px;height:34px;margin-top:2px}
+.spark i{display:block;width:16px;background:var(--accent-soft);border-top:2px solid var(--accent)}
+.spark span{font-family:var(--mono);font-size:10px;color:var(--faint);align-self:center;
+margin-left:6px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.panel{background:var(--sunk);padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.panel h3{margin:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+text-transform:uppercase;color:var(--faint);font-weight:400}
+.panel ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--soft)}
+.panel li{margin-bottom:3px}
+.pill{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+padding:2px 7px;white-space:nowrap}
+.pill.pass{background:var(--pass-bg);color:var(--pass)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.fail{background:var(--fail-bg);color:var(--fail)}
+.pill.na{background:var(--sunk);color:var(--faint)}
+.chan{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.ch{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--accent);
+padding:12px 14px}
+.ch.derived{border-top-color:var(--warn)}
+.ch.absent{border-top-color:var(--rule2);opacity:.7}
+.ch-n{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+color:var(--accent)}
+.ch.derived .ch-n{color:var(--warn)}
+.ch.absent .ch-n{color:var(--faint)}
+.ch-c{font-family:var(--mono);font-size:22px;font-variant-numeric:tabular-nums}
+.ch p{font-size:12.5px}
+.src{font-family:var(--mono);font-size:11px;color:var(--faint);word-break:break-all}
+.diagram{background:var(--surface);border:1px solid var(--rule);padding:16px;overflow-x:auto}
+.diagram svg{display:block;min-width:700px;width:100%;height:auto}
+.b-src{fill:var(--surface);stroke:var(--rule2);stroke-width:1.4}
+.b-drv{fill:var(--warn-bg);stroke:var(--warn);stroke-width:1.4}
+.b-ag{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}
+.b-fx{fill:var(--sunk);stroke:var(--rule2);stroke-width:1.4}
+.b-out{fill:var(--pass-bg);stroke:var(--pass);stroke-width:1.4}
+.t-l{fill:var(--ink);font-family:var(--sans);font-size:12.5px;font-weight:600}
+.t-h{fill:var(--ink);font-family:var(--sans);font-size:15px;font-weight:700}
+.t-k{fill:var(--faint);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.t-s{fill:var(--faint);font-family:var(--mono);font-size:10px}
+.t-p{fill:var(--accent);font-family:var(--mono);font-size:10px}
+.ln{stroke:var(--rule2);stroke-width:1.4;fill:none}
+.lp{stroke:var(--accent);stroke-width:1.4;fill:none;stroke-dasharray:4 3}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:680px}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+color:var(--faint);text-align:left;font-weight:400;padding:10px 14px;
+border-bottom:1px solid var(--rule2);white-space:nowrap}
+td{padding:9px 14px;border-bottom:1px solid var(--rule);font-size:14px;vertical-align:baseline}
+tr:last-child td{border-bottom:none}
+td.num{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums;
+white-space:nowrap;font-size:15px}
+td.unit{font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+td.tick{font-family:var(--mono);font-size:12.5px;font-weight:650}
+footer{border-top:1px solid var(--rule);padding-top:14px;font-family:var(--mono);
+font-size:11px;color:var(--faint);display:flex;flex-wrap:wrap;gap:6px 22px}
+@media (max-width:640px){.metric{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="eyebrow">EPS-Winners &middot; generated from the last run</div>
+    <h1>Quarterly forecast desk</h1>
+    <p>Every figure below is either cited to a source document, labelled <em>derived</em>,
+       or marked unavailable. Nothing is shown that the system did not establish.</p>
+    <div class="runbar">
+      <span>as_of <b>2026-08-16</b></span><span>model <b>openai:gpt-4.1</b></span>
+      <span>metrics <b>12/12</b></span>
+      <span>companies <b>4</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Evidence channels</h2>
+    <div class="chan">
+      <div class="ch"><div class="ch-n">Finance</div><div class="ch-c">39</div>
+        <p>Reported actuals from filings. The only audited figures here.</p></div>
+      <div class="ch"><div class="ch-n">Calls</div><div class="ch-c">2</div>
+        <p>Guidance and consensus from transcripts and trading statements.</p></div>
+      <div class="ch derived"><div class="ch-n">Cyclical &mdash; derived</div>
+        <div class="ch-c">9</div>
+        <p>Seasonality and trend computed from the finance channel, not read anywhere.</p></div>
+      <div class="ch"><div class="ch-n">Market &mdash; live</div>
+        <div class="ch-c">6</div>
+        <p>Analyst consensus for the target quarter, fetched from Yahoo Finance. This is the
+           denominator of the accuracy score.</p></div></div>
+  </section>
+
+
+  <section>
+    <h2>How a forecast is produced</h2>
+    <p>Two of the six steps are agents that decide their own next move. The other four are
+       fixed code, deliberately: the last word on a number belongs to something that cannot
+       be argued round.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 900 200" role="img" aria-label="Evidence from four channels feeds a research agent, then three independent forecasters, then deterministic rails, then the workbook.">
+        <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8"
+          markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z"
+          fill="currentColor"/></marker></defs>
+        <g color="var(--rule2)">
+          <rect class="b-src" x="8" y="46" width="150" height="98" rx="3"/>
+          <text class="t-h" x="83" y="72" text-anchor="middle">1 &middot; Evidence</text>
+          <text class="t-s" x="83" y="94" text-anchor="middle">filings &middot; calls</text>
+          <text class="t-s" x="83" y="110" text-anchor="middle">consensus</text>
+          <text class="t-s" x="83" y="126" text-anchor="middle">seasonality</text>
+
+          <rect class="b-ag" x="198" y="46" width="150" height="98" rx="3"/>
+          <text class="t-h" x="273" y="72" text-anchor="middle">2 &middot; Research</text>
+          <text class="t-s" x="273" y="94" text-anchor="middle">agent picks its</text>
+          <text class="t-s" x="273" y="110" text-anchor="middle">own next move</text>
+          <text class="t-s" x="273" y="126" text-anchor="middle">date-locked</text>
+
+          <rect class="b-ag" x="388" y="46" width="150" height="98" rx="3"/>
+          <text class="t-h" x="463" y="72" text-anchor="middle">3 &middot; Three views</text>
+          <text class="t-s" x="463" y="94" text-anchor="middle">guidance &middot; trend</text>
+          <text class="t-s" x="463" y="110" text-anchor="middle">judgement</text>
+          <text class="t-s" x="463" y="126" text-anchor="middle">+ a critic</text>
+
+          <rect class="b-fx" x="578" y="46" width="150" height="98" rx="3"/>
+          <text class="t-h" x="653" y="72" text-anchor="middle">4 &middot; Rails</text>
+          <text class="t-s" x="653" y="94" text-anchor="middle">units &middot; period</text>
+          <text class="t-s" x="653" y="110" text-anchor="middle">bounds &middot; clamps</text>
+          <text class="t-s" x="653" y="126" text-anchor="middle">never blank</text>
+
+          <rect class="b-out" x="768" y="46" width="124" height="98" rx="3"/>
+          <text class="t-h" x="830" y="72" text-anchor="middle">5 &middot; Workbook</text>
+          <text class="t-s" x="830" y="94" text-anchor="middle">3 cells</text>
+          <text class="t-s" x="830" y="110" text-anchor="middle">per company</text>
+
+          <path class="ln" marker-end="url(#a)" d="M158 95 H192"/>
+          <path class="ln" marker-end="url(#a)" d="M348 95 H382"/>
+          <path class="ln" marker-end="url(#a)" d="M538 95 H572"/>
+          <path class="ln" marker-end="url(#a)" d="M728 95 H762"/>
+
+          <g color="var(--accent)">
+            <path class="lp" marker-end="url(#a)" d="M273 46 V26 H230 V40"/>
+            <text class="t-p" x="286" y="34">re-query if evidence is thin</text>
+            <path class="lp" marker-end="url(#a)" d="M463 144 V166 H420 V152"/>
+            <text class="t-p" x="476" y="170">critic sends it back</text>
+          </g>
+
+          <text class="t-k" x="273" y="192" text-anchor="middle">agents decide</text>
+          <text class="t-k" x="463" y="192" text-anchor="middle">agents decide</text>
+          <text class="t-k" x="653" y="192" text-anchor="middle">code decides</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="cols">
+      <div class="panel"><h3>Agents (decide for themselves)</h3><ul>
+        <li><b>Research agent</b> &mdash; writes its own queries, reads, re-queries when evidence is thin</li>
+        <li><b>Three forecasters</b> &mdash; guidance, statistical, qualitative; separate contexts</li>
+        <li><b>Critic</b> &mdash; sees the numbers but not the reasoning, tries to refute</li>
+      </ul></div>
+      <div class="panel"><h3>Fixed code (cannot be argued round)</h3><ul>
+        <li><b>Retrieval</b> &mdash; BM25 with a hard as_of date cutoff</li>
+        <li><b>Aggregator</b> &mdash; sorts evidence into channels, flags thin metrics</li>
+        <li><b>Reconcile</b> &mdash; confidence weighting, outliers cut</li>
+        <li><b>Rails</b> &mdash; units, basis, period, guidance bound, history clamp</li>
+      </ul></div>
+      <div class="panel"><h3>Why consensus matters</h3><ul>
+        <li>Score is our error &divide; Wall Street&rsquo;s error</li>
+        <li>Consensus is therefore the benchmark, not a hint</li>
+        <li>Matching it scores ~1.0; beating it needs a reason</li>
+        <li>Hays is the one place we deviate deliberately</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The twelve submitted forecasts</h2>
+    <p>Exactly what is written to the four workbooks. Confidence is derived from method
+       agreement, whether a published anchor bounded the value, and whether the critic
+       objected.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Co</th><th>Metric</th><th style="text-align:right">Forecast</th>
+        <th>Units</th><th>Confidence</th><th>Basis</th></tr></thead>
+      <tbody><tr><td class="tick">ADI</td><td>Revenue</td><td class="num">3,925.01</td><td class="unit">USDm</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr><tr><td class="tick">ADI</td><td>Adjusted diluted EPS</td><td class="num">3.33</td><td class="unit">USD / share</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr><tr><td class="tick">ADI</td><td>Adjusted gross margin</td><td class="num">73.00</td><td class="unit">%</td><td><span class="pill pass">high</span></td><td class="unit">methods agree</td></tr><tr><td class="tick">DE</td><td>Worldwide net sales and revenues</td><td class="num">10,903.68</td><td class="unit">USDm</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr><tr><td class="tick">DE</td><td>Diluted EPS (GAAP)</td><td class="num">4.42</td><td class="unit">USD / share</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr><tr><td class="tick">DE</td><td>Production &amp; Precision Ag operating profit</td><td class="num">400.00</td><td class="unit">USDm</td><td><span class="pill warn">medium</span></td><td class="unit">critic corrected the value; no published range to land on</td></tr><tr><td class="tick">HD</td><td>Net sales</td><td class="num">47,324.52</td><td class="unit">USDm</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr><tr><td class="tick">HD</td><td>Adjusted diluted EPS</td><td class="num">4.62</td><td class="unit">USD / share</td><td><span class="pill warn">medium</span></td><td class="unit">published anchor, clamped to history</td></tr><tr><td class="tick">HD</td><td>Comparable sales, total company</td><td class="num">1.80</td><td class="unit">%</td><td><span class="pill pass">high</span></td><td class="unit">methods agree</td></tr><tr><td class="tick">HAS</td><td>Net fees</td><td class="num">950.00</td><td class="unit">GBPm</td><td><span class="pill warn">medium</span></td><td class="unit">critic corrected the value; no published range to land on</td></tr><tr><td class="tick">HAS</td><td>Pre-exceptional basic EPS</td><td class="num">1.00</td><td class="unit">GBp</td><td><span class="pill warn">medium</span></td><td class="unit">critic corrected the value; no published range to land on</td></tr><tr><td class="tick">HAS</td><td>Pre-exceptional operating profit</td><td class="num">43.99</td><td class="unit">GBPm</td><td><span class="pill pass">high</span></td><td class="unit">published anchor</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Company reports</h2>
+        <div class="co">
+      <div class="co-head">
+        <div class="co-name">Analog Devices</div>
+        <span class="chip">Semiconductors</span>
+        <div class="co-meta">period <b>FY2026Q3</b></div>
+        <div class="co-meta">22 tool calls &middot; 25.7s
+          &middot; 1 follow-up</div>
+      </div>
+      <div class="co-body">
+        <div class="metrics">      <div class="metric ok">
+        <div class="m-name">Revenue <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">3,925.01<span class="m-unit">USDm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 3,925.00 &middot; <span class="k">statistical</span> 3,925.00 &middot; <span class="k">qualitative</span> 3,925.00</div><div class="m-line"><span class="k">trend</span> <span class="pill na">not derivable &mdash; too few points</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div>
+        
+      </div>      <div class="metric ok">
+        <div class="m-name">Adjusted diluted EPS <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">3.33<span class="m-unit">USD / share</span></div>
+        <div class="m-line"><span class="k">guidance</span> 3.33 &middot; <span class="k">statistical</span> 3.33 &middot; <span class="k">qualitative</span> 3.33</div><div class="m-line"><span class="k">trend</span> <span class="pill na">not derivable &mdash; too few points</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div>
+        
+      </div>      <div class="metric ok">
+        <div class="m-name">Adjusted gross margin <span class="pill pass">recovered from filing</span></div>
+        <div class="m-val">73.00<span class="m-unit">%</span></div>
+        <div class="m-line"><span class="k">guidance</span> 73.00 &middot; <span class="k">statistical</span> 73.00 &middot; <span class="k">qualitative</span> 73.00</div><div class="m-line"><span class="k">trend</span> <span class="pill na">not derivable &mdash; too few points</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="src">source: 2026-05-20__adi-us-20260520-q2-8k-2__1040614</div>
+        
+      </div></div>
+        <div class="cols">
+          <div class="panel"><h3>What changed this period</h3><ul><li>Located several Q2 2026 earnings and outlook documents, including 8-K filings and earnings call transcripts. These are likely to contain explicit guidance for Q3 2026, which is the target period.</li></ul></div>
+          <div class="panel"><h3>Watch items &amp; gaps</h3><ul><li>Revenue: only 0 historical point(s), need 4 to fit a trend or clamp</li><li>Revenue: no guidance or management commentary found</li><li>Adjusted diluted EPS: only 0 historical point(s), need 4 to fit a trend or clamp</li><li>Adjusted diluted EPS: no guidance or management commentary found</li></ul></div>
+          <div class="panel"><h3>Industry KPIs</h3><ul><li>revenue by end market</li><li>adjusted gross margin</li><li>bookings</li><li>inventory days</li><li>utilization</li></ul></div>
+          <div class="panel"><h3>Catalysts tracked</h3><ul><li>inventory correction stage</li><li>data-centre and AI capex cycle</li><li>export restrictions</li><li>end-market inflection in automotive or industrial</li></ul></div>
+        </div>
+      </div>
+    </div>    <div class="co">
+      <div class="co-head">
+        <div class="co-name">Deere &amp; Company</div>
+        <span class="chip">Industrial / Machinery</span>
+        <div class="co-meta">period <b>FY2026Q3</b></div>
+        <div class="co-meta">23 tool calls &middot; 32.7s
+          &middot; 0 follow-up</div>
+      </div>
+      <div class="co-body">
+        <div class="metrics">      <div class="metric ok">
+        <div class="m-name">Worldwide net sales and revenues <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">10,903.68<span class="m-unit">USDm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 10,950.00 &middot; <span class="k">statistical</span> 10,980.00 &middot; <span class="k">qualitative</span> 11,050.00</div><div class="m-line"><span class="k">trend</span> -8.6% recent &middot; decline easing &middot; <span class="k">naive</span> 10,981.78 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance</span> n/a</div><div class="src">source: 2025-08-15__de-us-20250815-q3-8k__143410</div>
+        <div class="spark"><i style="height:6px"></i><i style="height:20px"></i><i style="height:32px"></i><i style="height:14px"></i><i style="height:6px"></i><span>5 prior periods &middot; 12,018.00&ndash;15,801.00</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Diluted EPS (GAAP) <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">4.42<span class="m-unit">USD / share</span></div>
+        <div class="m-line"><span class="k">guidance</span> 4.65 &middot; <span class="k">statistical</span> 3.60 &middot; <span class="k">qualitative</span> 4.60</div><div class="m-line"><span class="k">trend</span> -24.5% recent &middot; decline easing &middot; <span class="k">naive</span> 3.59 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="src">source: 2025-08-15__de-us-20250815-q3-8k__143410</div>
+        <div class="spark"><i style="height:6px"></i><i style="height:13px"></i><i style="height:32px"></i><i style="height:13px"></i><i style="height:6px"></i><span>5 prior periods &middot; 4.75&ndash;10.20</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Production &amp; Precision Ag operating profit <span class="pill pass">recovered from filing</span> <span class="pill pass">corrected by critic</span></div>
+        <div class="m-val">400.00<span class="m-unit">USDm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 350.00 &middot; <span class="k">statistical</span> 290.00 &middot; <span class="k">qualitative</span> 400.00</div><div class="m-line"><span class="k">trend</span> -50.1% recent &middot; decline deepening &middot; <span class="k">naive</span> 289.50 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="m-line"><span class="k">critic</span> moved 423.37 into 290.00&ndash;400.00</div><div class="src">source: 2025-08-15__de-us-20250815-q3-8k__143410</div>
+        <div class="spark"><i style="height:6px"></i><i style="height:21px"></i><i style="height:32px"></i><i style="height:19px"></i><i style="height:6px"></i><span>5 prior periods &middot; 580.00&ndash;1,782.00</span></div>
+      </div></div>
+        <div class="cols">
+          <div class="panel"><h3>What changed this period</h3><ul><li>Full-year FY2026 net income guidance: $4.5-5.0bn (no explicit quarterly breakdown).</li><li>Q3 is typically a seasonally weaker quarter for both sales and profit.</li><li>Production &amp; Precision Ag segment has seen significant YoY declines in both sales and operating profit in recent Q3s.</li><li>Industry outlook for large ag remains weak, with continued dealer inventory destocking and lower farm income.</li><li>Price realization has been positive but offset by volume declines.</li></ul></div>
+          <div class="panel"><h3>Watch items &amp; gaps</h3><ul><li>Diluted EPS (GAAP): no guidance or management commentary found</li><li>Production &amp; Precision Ag operating profit: no guidance or management commentary found</li></ul></div>
+          <div class="panel"><h3>Industry KPIs</h3><ul><li>segment operating profit</li><li>order backlog</li><li>price realization</li><li>unit volumes</li><li>dealer inventory</li></ul></div>
+          <div class="panel"><h3>Catalysts tracked</h3><ul><li>farm income and crop prices</li><li>dealer inventory destocking</li><li>interest rates on equipment finance</li><li>industry unit outlook revisions</li></ul></div>
+        </div>
+      </div>
+    </div>    <div class="co">
+      <div class="co-head">
+        <div class="co-name">Home Depot</div>
+        <span class="chip">Consumer / Retail</span>
+        <div class="co-meta">period <b>FY2026Q2</b></div>
+        <div class="co-meta">58 tool calls &middot; 49.8s
+          &middot; 1 follow-up</div>
+      </div>
+      <div class="co-body">
+        <div class="metrics">      <div class="metric ok">
+        <div class="m-name">Net sales <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">47,324.52<span class="m-unit">USDm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 47,235.00 &middot; <span class="k">statistical</span> 47,480.00 &middot; <span class="k">qualitative</span> 47,400.00</div><div class="m-line"><span class="k">trend</span> +4.9% recent &middot; inflected positive &middot; <span class="k">naive</span> 47,481.34 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="src">source: 2025-08-19__hd-us-20250819-q2-10q__148871</div>
+        <div class="spark"><i style="height:6px"></i><i style="height:19px"></i><i style="height:32px"></i><i style="height:14px"></i><i style="height:27px"></i><span>5 prior periods &middot; 41,765.00&ndash;46,157.00</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Adjusted diluted EPS <span class="pill pass">anchored to consensus</span> <span class="pill pass">clamped to history</span></div>
+        <div class="m-val">4.62<span class="m-unit">USD / share</span></div>
+        <div class="m-line"><span class="k">guidance</span> 4.73 &middot; <span class="k">statistical</span> 4.56 &middot; <span class="k">qualitative</span> 4.73</div><div class="m-line"><span class="k">trend</span> -0.4% recent &middot; inflected negative &middot; <span class="k">naive</span> 4.56 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="src">source: 2025-08-19__hd-us-20250819-q2-10q__148871</div>
+        <div class="spark"><i style="height:6px"></i><i style="height:32px"></i><i style="height:32px"></i><span>3 prior periods &middot; 3.30&ndash;4.60</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Comparable sales, total company <span class="pill pass">recovered from filing</span></div>
+        <div class="m-val">1.80<span class="m-unit">%</span></div>
+        <div class="m-line"><span class="k">guidance</span> 2.30 &middot; <span class="k">statistical</span> 2.30 &middot; <span class="k">qualitative</span> 2.30</div><div class="m-line"><span class="k">trend</span> +130.3% recent &middot; inflected positive &middot; <span class="k">naive</span> 2.30 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="src">source: 2025-08-19__hd-us-20250819-q2-10q__148871</div>
+        <div class="spark"><i style="height:30px"></i><i style="height:6px"></i><i style="height:32px"></i><span>3 prior periods &middot; -3.30&ndash;1.00</span></div>
+      </div></div>
+        <div class="cols">
+          <div class="panel"><h3>What changed this period</h3><ul><li>Ticket vs transaction split: Q1 2026 average ticket up 2.2%, transactions down 1.3%</li><li>Comparable sales growth: Q1 2026 up 0.6%, Q2 2025 up 1.0%</li><li>No explicit FX or inorganic revenue contribution found in available filings</li><li>Quarter share of full-year sales: Q2 is typically the largest quarter for Home Depot</li><li>Adjusted operating margin not explicitly guided for FY2026Q2</li></ul></div>
+          <div class="panel"><h3>Watch items &amp; gaps</h3><ul><li>Net sales: no guidance or management commentary found</li><li>Adjusted diluted EPS: only 3 historical point(s), need 4 to fit a trend or clamp</li><li>Adjusted diluted EPS: no guidance or management commentary found</li><li>Comparable sales, total company: only 3 historical point(s), need 4 to fit a trend or clamp</li></ul></div>
+          <div class="panel"><h3>Industry KPIs</h3><ul><li>comparable sales</li><li>store count</li><li>average ticket</li><li>transactions</li><li>e-commerce mix</li></ul></div>
+          <div class="panel"><h3>Catalysts tracked</h3><ul><li>housing turnover and mortgage rates</li><li>weather and seasonal timing</li><li>promotional cadence</li><li>acquisition close dates</li></ul></div>
+        </div>
+      </div>
+    </div>    <div class="co">
+      <div class="co-head">
+        <div class="co-name">Hays plc</div>
+        <span class="chip">Staffing / Professional services</span>
+        <div class="co-meta">period <b>FY2026</b></div>
+        <div class="co-meta">46 tool calls &middot; 60.7s
+          &middot; 1 follow-up</div>
+      </div>
+      <div class="co-body">
+        <div class="metrics">      <div class="metric ok">
+        <div class="m-name">Net fees <span class="pill pass">corrected by critic</span></div>
+        <div class="m-val">950.00<span class="m-unit">GBPm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 849.00 &middot; <span class="k">statistical</span> 849.10 &middot; <span class="k">qualitative</span> 900.00</div><div class="m-line"><span class="k">trend</span> -12.7% recent &middot; decline easing &middot; <span class="k">naive</span> 849.10 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="m-line"><span class="k">critic</span> moved 861.78 into 950.00&ndash;1,050.00</div><div class="src">source: 2025-08-21__has-ln-20250821-h2-8k-2__671218</div>
+        <div class="spark"><i style="height:24px"></i><i style="height:32px"></i><i style="height:17px"></i><i style="height:6px"></i><span>4 prior periods &middot; 972.40&ndash;1,294.60</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Pre-exceptional basic EPS <span class="pill pass">corrected by critic</span> <span class="pill pass">1 outlier down-weighted</span></div>
+        <div class="m-val">1.00<span class="m-unit">GBp</span></div>
+        <div class="m-line"><span class="k">guidance</span> 0.43 &middot; <span class="k">statistical</span> 0.43 &middot; <span class="k">qualitative</span> 1.00</div><div class="m-line"><span class="k">trend</span> -67.5% recent &middot; decline deepening &middot; <span class="k">naive</span> 0.43 <span class="k">(derived)</span></div><div class="m-line"><span class="k">guidance / estimate</span> <span class="pill na">none published</span></div><div class="m-line"><span class="k">critic</span> moved 0.50 into 1.00&ndash;2.00</div><div class="src">source: 2025-08-21__has-ln-20250821-h2-8k-2__671218</div>
+        <div class="spark"><i style="height:32px"></i><i style="height:30px"></i><i style="height:15px"></i><i style="height:6px"></i><span>4 prior periods &middot; 1.31&ndash;9.22</span></div>
+      </div>      <div class="metric ok">
+        <div class="m-name">Pre-exceptional operating profit <span class="pill pass">anchored to consensus</span></div>
+        <div class="m-val">43.99<span class="m-unit">GBPm</span></div>
+        <div class="m-line"><span class="k">guidance</span> 43.50 &middot; <span class="k">statistical</span> 43.50 &middot; <span class="k">qualitative</span> 43.50</div><div class="m-line"><span class="k">trend</span> -56.6% recent &middot; decline deepening &middot; <span class="k">naive</span> 19.78 <span class="k">(derived)</span></div><div class="m-line"><span class="k">consensus</span> 45.28 range 37.00&ndash;46.00</div><div class="src">source: 2025-08-21__has-ln-20250821-h2-8k-2__671218</div>
+        <div class="spark"><i style="height:32px"></i><i style="height:30px"></i><i style="height:15px"></i><i style="height:6px"></i><span>4 prior periods &middot; 45.60&ndash;210.10</span></div>
+      </div></div>
+        <div class="cols">
+          <div class="panel"><h3>What changed this period</h3><ul><li>none recorded</li></ul></div>
+          <div class="panel"><h3>Watch items &amp; gaps</h3><ul><li>Net fees: no guidance or management commentary found</li><li>Pre-exceptional basic EPS: no guidance or management commentary found</li></ul></div>
+          <div class="panel"><h3>Industry KPIs</h3><ul><li>net fees</li><li>LFL net fee growth</li><li>consultant headcount</li><li>perm vs temp mix</li><li>productivity</li></ul></div>
+          <div class="panel"><h3>Catalysts tracked</h3><ul><li>white-collar hiring confidence</li><li>German average hours worked</li><li>country exits and disposals</li><li>cost-savings programme run-rate</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>Does the method work? Measured, not asserted</h2>
+    <p>The harness forecasts a period that has already been reported, using only evidence
+       published before the results came out, then scores against the actual. Retrieval
+       hard-excludes anything after the cutoff, so the system cannot read the answer.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Co</th><th>Period</th><th>Metric</th>
+        <th style="text-align:right">Forecast</th><th style="text-align:right">Actual</th>
+        <th>Error</th><th>Conditions</th></tr></thead>
+      <tbody><tr><td class="tick">DE</td><td class="unit">FY2025Q3</td><td>Worldwide net sales and revenues</td><td class="num">10,734.75</td><td class="num">12,018.00</td><td><span class="pill warn">10.68%</span></td><td class="unit">as_of 2025-08-13 <span class="pill pass">no leak</span></td></tr><tr><td class="tick">DE</td><td class="unit">FY2025Q3</td><td>Diluted EPS (GAAP)</td><td class="num">4.67</td><td class="num">4.76</td><td><span class="pill pass">1.98%</span></td><td class="unit">as_of 2025-08-13 <span class="pill pass">no leak</span></td></tr><tr><td class="tick">DE</td><td class="unit">FY2025Q3</td><td>Production &amp; Precision Ag operating profit</td><td class="num">1,029.22</td><td class="num">580.00</td><td><span class="pill fail">77.45%</span></td><td class="unit">as_of 2025-08-13 <span class="pill pass">no leak</span></td></tr><tr><td class="tick">ADI</td><td class="unit">FY2026Q2</td><td>Revenue</td><td class="num">3,982.14</td><td class="num">3,620.00</td><td><span class="pill warn">10.00%</span></td><td class="unit">as_of 2026-05-19 <span class="pill pass">no leak</span></td></tr><tr><td class="tick">ADI</td><td class="unit">FY2026Q2</td><td>Adjusted gross margin</td><td class="num">73.59</td><td class="num">73.00</td><td><span class="pill pass">0.81%</span></td><td class="unit">as_of 2026-05-19 <span class="pill pass">no leak</span></td></tr></tbody></table></div>
+    <p><b>The first version of this test was cheating and we caught it.</b> Deere&rsquo;s Q3
+       filing is published <em>on</em> 2025-08-14; our filter excluded only documents
+       published <em>after</em> the cutoff, so the results filing was readable and segment
+       profit came back as exactly 580.0 &mdash; the true figure. The cutoff moved to
+       2025-08-13 and same-day publication now counts as a leak. The numbers above are from
+       after that fix.</p>
+  </section>
+
+  <section>
+    <h2>Where this is weakest</h2>
+    <div class="cols">
+      <div class="panel"><h3>Known failures</h3><ul>
+        <li><b>Segment operating profit</b> is the weakest metric &mdash; 77% error in
+            backtest. It lives in segment notes with the thinnest history and no consensus
+            coverage.</li>
+        <li><b>The critic has no teeth.</b> It objects and nothing acts on the objection;
+            the refute-and-re-run loop was designed and never built.</li>
+        <li><b>Hays basic EPS</b> rests on two historical points, so no trend can be fitted
+            and the clamp cannot engage.</li>
+      </ul></div>
+      <div class="panel"><h3>Tried and abandoned</h3><ul>
+        <li>A deterministic <b>guidance scanner</b> to match the consensus scanner. Filings
+            spell quarters out, guidance spans sentences, magnitudes mix billions and
+            millions. It returned nothing twice and was cut rather than shipped
+            half-working.</li>
+        <li>A flat median across the three forecasters &mdash; discarded once it became
+            clear guidance quality varies enormously between these four companies.</li>
+      </ul></div>
+      <div class="panel"><h3>Honest limits</h3><ul>
+        <li>Consensus-anchoring targets a score near 1.0. Beating Wall Street needs a
+            reason to deviate; we have one only for Hays, where management guided to the
+            top of a published range.</li>
+        <li>Industry profiles are agnostic <em>by construction</em> and demonstrated on
+            four sectors. Never run on a fifth; the fallback profile has no coverage.</li>
+        <li>Three of four fiscal period ends are derived arithmetically, not read from a
+            document stating them.</li>
+        <li>Runs vary. Rails hold a number steady where they engage; where no anchor
+            surfaces, it wanders.</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reproducing this run</h2>
+    <div class="cols">
+      <div class="panel"><h3>Final command</h3><ul>
+        <li><code>python3 run.py</code></li>
+        <li>Writes four .xlsx to <code>submission/</code></li>
+        <li>Then <code>npm run check:submission</code></li>
+        <li>Human input during the run: <b>none</b></li>
+      </ul></div>
+      <div class="panel"><h3>Setup</h3><ul>
+        <li><code>OPENAI_API_KEY</code> in <code>.env</code> (gitignored)</li>
+        <li><code>pip install openpyxl httpx yfinance</code></li>
+        <li><code>npm install</code> for the organizer validator</li>
+        <li>Corpus path set in <code>config/settings.json</code></li>
+      </ul></div>
+      <div class="panel"><h3>Where things live</h3><ul>
+        <li><code>src/tools/</code> &mdash; retrieval, tables, consensus, market</li>
+        <li><code>src/agents/</code> &mdash; research loop, forecasters, critic</li>
+        <li><code>src/rails/</code> &mdash; reconcile, workbook, this report</li>
+        <li><code>backtest/</code> &mdash; the harness above</li>
+        <li><code>logs/clear-run.log</code> &mdash; timestamped run record</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <footer><span>generated &mdash; not hand-maintained</span>
+    <span>uploads are manual</span><span>no secrets in this page</span></footer>
+</div>
+</body>
+</html>
