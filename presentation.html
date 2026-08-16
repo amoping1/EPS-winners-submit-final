@@ -101,7 +101,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0 48px;font:12px/1.7 var(--
 
 <div class="rail"><div class="wrap">
   <span>Agents vs Wall Street &middot; EPS Winners</span>
-  <span class="r"><span>6a9b75a</span><span class="cut">cutoff 2026-08-16</span></span>
+  <span class="r"><span>bb1810d</span><span class="cut">cutoff 2026-08-16</span></span>
 </div></div>
 
 <header class="hero"><div class="wrap">
@@ -304,30 +304,30 @@ footer{border-top:1px solid var(--rule);padding:26px 0 48px;font:12px/1.7 var(--
   <p class="note">One timestamped line per event, written as the run happens. This is the same
     file submitted as the clear-run record, not a summary written afterwards. Each backtest line
     shows how many documents the guard refused for that replay.</p>
-  <pre><code>14:56:05.107  run.start        as_of=2026-08-16
-14:56:06.292  stage.end        stage=corpus.index duration_s=1.185 documents=1139
-14:56:06.746  backtest.event   company=HD report_date=2026-05-19 cutoff=2026-05-18 documents_blocked=18
-14:56:07.314  backtest.event   company=HD report_date=2026-02-24 cutoff=2026-02-23 documents_blocked=70
-14:56:08.406  backtest.event   company=HD report_date=2025-11-18 cutoff=2025-11-17 documents_blocked=84
-14:56:09.803  backtest.event   company=HD report_date=2025-08-20 cutoff=2025-08-19 documents_blocked=112
-14:56:11.144  backtest.event   company=HD report_date=2025-08-19 cutoff=2025-08-18 documents_blocked=112
-14:56:12.218  backtest.event   company=HD report_date=2025-05-20 cutoff=2025-05-19 documents_blocked=126
-14:56:13.321  backtest.event   company=HD report_date=2025-02-25 cutoff=2025-02-24 documents_blocked=161
-14:56:14.364  backtest.event   company=HD report_date=2024-11-12 cutoff=2024-11-11 documents_blocked=175
-14:56:16.217  backtest.event   company=ADI report_date=2026-05-20 cutoff=2026-05-19 documents_blocked=21
-14:57:09.002  agent.forecast   company=HAS metric=Pre-exceptional operating profit proposed=40.2 accepte...
-14:57:09.002  stage.end        stage=agent duration_s=2.075 proposed=3 accepted=3
-14:57:10.182  validation.flag  company=HAS metric=Net fees check=history status=warn
-14:57:10.182  validation.flag  company=HAS metric=Pre-exceptional basic EPS check=history status=warn
-14:57:10.250  stage.end        stage=company duration_s=5.946
-14:57:12.637  agent.forecast   company=DE metric=Production & Precision Ag operating profit proposed=356...
-14:57:12.637  stage.end        stage=agent duration_s=0.401 proposed=1 accepted=1
-14:57:14.482  stage.end        stage=company duration_s=4.231
-14:57:14.483  agent.usage      calls=0 estimated_usd=0.0
-14:57:14.483  stage.end        stage=pipeline duration_s=69.375
-14:57:14.674  run.end          status=baseline workbooks=4</code></pre>
+  <pre><code>16:26:16.987  run.start        as_of=2026-08-16
+16:26:18.149  stage.end        stage=corpus.index duration_s=1.161 documents=1139
+16:26:18.606  backtest.event   company=HD report_date=2026-05-19 cutoff=2026-05-18 documents_blocked=18
+16:26:19.182  backtest.event   company=HD report_date=2026-02-24 cutoff=2026-02-23 documents_blocked=70
+16:26:19.701  backtest.event   company=HD report_date=2025-11-18 cutoff=2025-11-17 documents_blocked=84
+16:26:20.402  backtest.event   company=HD report_date=2025-08-20 cutoff=2025-08-19 documents_blocked=112
+16:26:21.013  backtest.event   company=HD report_date=2025-08-19 cutoff=2025-08-18 documents_blocked=112
+16:26:21.539  backtest.event   company=HD report_date=2025-05-20 cutoff=2025-05-19 documents_blocked=126
+16:26:22.051  backtest.event   company=HD report_date=2025-02-25 cutoff=2025-02-24 documents_blocked=161
+16:26:22.541  backtest.event   company=HD report_date=2024-11-12 cutoff=2024-11-11 documents_blocked=175
+16:26:23.410  backtest.event   company=ADI report_date=2026-05-20 cutoff=2026-05-19 documents_blocked=21
+16:26:49.485  agent.forecast   company=HAS metric=Pre-exceptional operating profit proposed=40.2 accepte...
+16:26:49.485  stage.end        stage=agent duration_s=0.999 proposed=3 accepted=3
+16:26:50.199  validation.flag  company=HAS metric=Net fees check=history status=warn
+16:26:50.199  validation.flag  company=HAS metric=Pre-exceptional basic EPS check=history status=warn
+16:26:50.262  stage.end        stage=company duration_s=3.021
+16:26:51.698  agent.forecast   company=DE metric=Production & Precision Ag operating profit proposed=356...
+16:26:51.698  stage.end        stage=agent duration_s=0.258 proposed=1 accepted=1
+16:26:52.787  stage.end        stage=company duration_s=2.525
+16:26:52.788  agent.usage      calls=0 estimated_usd=0.0
+16:26:52.788  stage.end        stage=pipeline duration_s=35.8
+16:26:52.957  run.end          status=baseline workbooks=4</code></pre>
   <p class="note">78 events in the full log at
-    <code>logs/run-2026-08-16-20260816T145605Z.jsonl</code>.</p>
+    <code>logs/run-2026-08-16-20260816T162616Z.jsonl</code>.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -453,7 +453,7 @@ npm run check:submission                  # the organisers' validator</code></pr
 </div></section>
 
 <footer><div class="wrap">
-  EPS Winners &middot; Agents vs Wall Street, London, 16 August 2026 &middot; commit 6a9b75a
+  EPS Winners &middot; Agents vs Wall Street, London, 16 August 2026 &middot; commit bb1810d
 </div></footer>
 
 </body>
